@@ -1,0 +1,21 @@
+Jersey 2.26 and newer are not backward compatible with older versions. The reason behind that has been stated in the release notes:
+
+Unfortunately, there was a need to make backwards incompatible changes in 2.26. Concretely jersey-proprietary reactive client API is completely gone and cannot be supported any longer - it conflicts with what was introduced in JAX-RS 2.1 (that's the price for Jersey being "spec playground..").
+
+Another bigger change in Jersey code is attempt to make Jersey core independent of any specific injection framework. As you might now, Jersey 2.x is (was!) pretty tightly dependent on HK2, which sometimes causes issues (esp. when running on other injection containers. Jersey now defines it's own injection facade, which, when implemented properly, replaces all internal Jersey injection.
+
+As for now one should use the following dependencies:
+
+Maven
+
+<dependency>
+    <groupId>org.glassfish.jersey.core</groupId>
+    <artifactId>jersey-common</artifactId>
+    <version>2.26</version>
+</dependency>
+
+<dependency>
+    <groupId>org.glassfish.jersey.inject</groupId>
+    <artifactId>jersey-hk2</artifactId>
+    <version>2.26</version>
+</dependency>
