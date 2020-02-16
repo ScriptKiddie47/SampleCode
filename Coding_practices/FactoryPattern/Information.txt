@@ -1,0 +1,17 @@
+Factory Method Pattern:
+A Factory Pattern or Factory Method Pattern says that
+ just define an interface or abstract class for creating an 
+ object but let the subclasses decide which class to instantiate. 
+ 
+ In other words, subclasses are responsible to create the instance of the class.
+ 
+ Factory Method Pattern allows the sub-classes to choose the type of objects to create.
+It promotes the loose-coupling by eliminating the need to bind application-specific classes into the code. 
+That means the code interacts solely with the resultant interface or abstract class, 
+so that it will work with any classes that implement that interface or that extends that abstract class.
+
+Step 1: Create a Plan abstract class
+Step 2: Create the concrete classes that extends Plan abstract class.
+Step 3: Create a GetPlanFactory to generate object of concrete classes based on given information.
+Step 4: Generate Bill by using the GetPlanFactory to get the object of concrete classes by passing
+ an information s as type of plan DOMESTICPLAN or COMMERCIALPLAN or INSTITUTIONALPLAN.
