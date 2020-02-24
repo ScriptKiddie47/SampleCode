@@ -1,0 +1,8 @@
+To sort an Object by its property, you have to make the Object implement the Comparable interface and override the compareTo() method. Lets see the new Fruit class again.
+
+he new Fruit class implemented the Comparable interface, and overrided the compareTo() method to compare its quantity property in ascending order.
+
+The compareTo() method is hard to explain, in integer sorting, just remember
+this.quantity – compareQuantity is ascending order.
+compareQuantity – this.quantity is descending order.
+To understand more about compareTo() method, read this Comparable documentation.
