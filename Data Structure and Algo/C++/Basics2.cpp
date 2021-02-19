@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
+/*FYI : The Code was Written and Run on DevC++*/
+/*Author : ScriptKiddie47*/
 class Array {
 	private:
 		int *A;
