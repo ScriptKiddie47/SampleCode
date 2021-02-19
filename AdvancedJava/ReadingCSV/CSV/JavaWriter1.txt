@@ -1,0 +1,13 @@
+	CSVWriter writer = new CSVWriter(new FileWriter(filePath));
+		List<String[]> theRows = new ArrayList<String[]>();
+		String[] header = new String[] {"id","name","crew","launchDate"};
+		theRows.add(header);
+		String[] row1 = new String[] {"1","falcon","12","2019"};
+		String[] row2 = new String[] {"2","Apollo","3","2011"};
+		String[] row3 = new String[] {"4","Dice","8","2015"};
+		theRows.add(row1);
+		theRows.add(row2);
+		theRows.add(row3);
+
+		writer.writeAll(theRows);
+		writer.close();
