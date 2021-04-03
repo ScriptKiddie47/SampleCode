@@ -1,4 +1,4 @@
-/*Student Challenge 1:*/
+/*Student Challenge 2:*/
 /*Single Missing Element in Sorted Array*/
 
 /*CASE1*/
