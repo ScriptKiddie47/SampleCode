@@ -1,0 +1,64 @@
+A = SIZE 2 
+---------
+[1,2]
+---------
+[2,1]
+[2,1]
+
+POSSIBLE COMBINATIONS : 2
+
+A = SIZE 3 
+
+---------
+[1,2,3]
+---------
+
+[1,2,3]
+[1,3,2]
+[2,1,2]
+[2,2,1]
+[3,2,1]
+[3,1,2]
+
+1 [ 2 ..]
+2 [ 2 ..]
+3 [ 2 ..]
+
+POSSIBLE COMBINATIONS : 6
+
+A = SIZE 4
+
+---------
+[1,2,3,4]
+---------
+[1, 6 .. ]
+[2, 6 .. ]
+[3, 6 .. ]
+[4, 6 .. ]
+
+POSSIBLE COMBINATIONS : 24
+
+
+---------
+[1,2,3,4,5]
+---------
+
+1[ 24.. ]
+2[ 24.. ]
+3[ 24.. ]
+4[ 24.. ]
+5[ 24.. ]
+
+POSSIBLE COMBINATIONS : 120
+
+
+------------
+[1,2,3,4,5,6]
+------------
+
+POSSIBLE COMBINATIONS : 600
+
+
+POSSIBLE COMBINATIONS of +1 arraySize = previous element - size of array *  previous POSSIBLE COMBINATIONS : 120
+
+
