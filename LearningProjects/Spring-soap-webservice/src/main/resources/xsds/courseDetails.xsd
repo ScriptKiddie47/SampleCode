@@ -3,13 +3,12 @@
 	targetNamespace="http://theLastScripter.com/courses"
 	xmlns:tns="http://theLastScripter.com/courses"
 	elementFormDefault="qualified">
-	
-	
+
 	<xs:element name="GetCourseDetailsRequest">
 		<!-- Define Structure -->
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="id" type="xs:integer"/>
+				<xs:element name="id" type="xs:int" />
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
@@ -18,17 +17,61 @@
 		<!-- Define Structure -->
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="CourseDetails" type="tns:CourseDetails"/>
+				<xs:element name="CourseDetails" type="tns:CourseDetails" />
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
 
+	<xs:element name="GetAllCourseDetailsRequest">
+		<xs:complexType>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="GetAllCourseDetailsResponse">
+		<!-- Define Structure -->
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="CourseDetails" type="tns:CourseDetails"
+					maxOccurs="unbounded" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="DeleteCourseDetailsRequest">
+		<!-- Define Structure -->
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="id" type="xs:int" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="DeleteCourseDetailsResponse">
+		<!-- Define Structure -->
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="status" type="tns:Status" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	
+	<xs:simpleType name="Status">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SUCCESS"/>
+			<xs:enumeration value="FAILURE"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+
+
 	<xs:complexType name="CourseDetails">
 		<xs:sequence>
-			<xs:element name="id" type="xs:integer"/>
-			<xs:element name="name" type="xs:string"/>
-			<xs:element name="description" type="xs:string"/>
+			<xs:element name="id" type="xs:int" />
+			<xs:element name="name" type="xs:string" />
+			<xs:element name="description" type="xs:string" />
 		</xs:sequence>
 	</xs:complexType>
-	
+
 </xs:schema>
