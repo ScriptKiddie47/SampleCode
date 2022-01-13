@@ -92,5 +92,3 @@ Object.defineProperty(Array.prototype, 'last', {
 })
 let arr = ['red', 'blue', 'green'];
 console.log(arr.last); // green 
-
-//
