@@ -11,6 +11,7 @@ console.log(typeof(null)); // object [ Controversy ]
 console.log(typeof({})); // object
 console.log(typeof(undefined)); //undefined
 console.log(NaN); // number [ Controversy ]
+console.log(typeof []); // Object
 
 // Common type conversions
 
@@ -100,7 +101,7 @@ let o = {
 };
 let newCar = { carId: 456 };
 let newFn = o.getID.bind(newCar);
-console.log(newFn());
+console.log(newFn()); // 456
 
 // Arrow function do not have their own 'this' value , 'this' refers to the enclosing context
 const data = {
@@ -303,3 +304,5 @@ form.addEventListener('submit', e => {
     e.preventDefault();
 });
 
+
+// If .length is used on a function , it will show the number of parameters
