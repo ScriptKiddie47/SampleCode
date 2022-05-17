@@ -1,0 +1,10 @@
+Powershell ( CASE INSENSITIVE ) 
+
+As a user account -- PS C:\Users\ritam>
+As an admin -- PS C:\WINDOWS\system32>
+
+##Everything is powershell is  cmdlet, function, script file, or operable program
+
+## PS C:\Users> dir is actually an alias for PS C:\Users> Get-ChildItem
+## To list out all the aliases 
+-- PS C:\Users> get-alias
