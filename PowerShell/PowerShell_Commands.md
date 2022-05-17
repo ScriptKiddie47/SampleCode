@@ -2,5 +2,5 @@
 
 | Command | Description |
 | --- | --- |
-| `git status` | List all *new or modified* files |
+| `> get-alias` | List of all Aliases |
 | `git diff` | Show file differences that **haven't been** staged |
