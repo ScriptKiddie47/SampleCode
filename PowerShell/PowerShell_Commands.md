@@ -7,7 +7,7 @@
 | `> Get-ChildItem \| select-object -First 1` | Return the first instance |
 | `> (Get-ChildItem \| select-object -Index 0).name.toUpper()` | Returns the first instance name object/string in Upper Case |
 | `> dir > directory.txt` | Response Stored in a Text File |
-| `> get-content .\directory.txt` | See COntent Inside a file |
+| `> get-content .\directory.txt` | See Content inside a file |
 | `git diff` | Show file differences that **haven't been** staged |
 | `git diff` | Show file differences that **haven't been** staged |
 | `git diff` | Show file differences that **haven't been** staged |
