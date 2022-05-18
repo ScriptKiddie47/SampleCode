@@ -10,5 +10,5 @@
 | `> get-content .\directory.txt` | See Content inside a file |
 | `> Get-ChildItem \| Out-File .\directory.txt` | Store response , the powershell way |
 | `> ls \| Out-GridView` | Opens a cool grid view |
-| `git diff` | Show file differences that **haven't been** staged |
+| `> mv .\directory.txt .\Desktop\` | Move file from 1 directory to another |
 | `git diff` | Show file differences that **haven't been** staged |
