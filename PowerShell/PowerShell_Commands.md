@@ -9,6 +9,6 @@
 | `> dir > directory.txt` | Response Stored in a Text File |
 | `> get-content .\directory.txt` | See Content inside a file |
 | `> Get-ChildItem \| Out-File .\directory.txt` | Store response , the powershell way |
-| `git diff` | Show file differences that **haven't been** staged |
+| `> ls \| Out-GridView` | Opens a cool grid view |
 | `git diff` | Show file differences that **haven't been** staged |
 | `git diff` | Show file differences that **haven't been** staged |
