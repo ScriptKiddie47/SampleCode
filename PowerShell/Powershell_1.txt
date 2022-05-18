@@ -6,5 +6,69 @@ As an admin -- PS C:\WINDOWS\system32>
 ##Everything is powershell is  cmdlet, function, script file, or operable program
 
 ## PS C:\Users> dir is actually an alias for PS C:\Users> Get-ChildItem
-## To list out all the aliases 
--- PS C:\Users> get-alias
+## Powershell works with Objects unlike linux/bash shells
+
+PS C:\Users> Get-ChildItem | select-object
+
+
+    Directory: C:\Users
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-r---        07-12-2021     22:27                Public
+d-----        17-05-2022     22:59                ritam
+
+
+PS C:\Users> Get-ChildItem | select-object Name
+
+Name
+----
+Public
+ritam
+
+## First Instance
+
+PS C:\Users> Get-ChildItem | select-object -First 1
+
+
+    Directory: C:\Users
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-r---        07-12-2021     22:27                Public
+
+## We can index as well 
+
+PS C:\Users> Get-ChildItem | select-object -Index 1
+
+
+    Directory: C:\Users
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        17-05-2022     22:59                ritam
+
+## If we did index 0 , we would have gotten the above value
+
+## Pipe More 
+
+PS C:\Users> Get-ChildItem | select-object -Index 0 | select-object Name
+
+Name
+----
+Public
+
+##  get-member , this gets us more info about the object
+
+PS C:\Users> Get-ChildItem | select-object -Index 0 | get-member
+
+
+## Parenthesis 
+
+PS C:\Users> (Get-ChildItem | select-object -Index 0).name
+Public
+PS C:\Users> (Get-ChildItem | select-object -Index 0).name.toUpper()
+PUBLIC
