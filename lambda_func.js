@@ -4,7 +4,7 @@ exports.handler = async (event) => {
   console.log(event);
   let response = {};
   let auth = "deny";
-  if (event.authorizationToken === "secretToken") {
+  if (event.authorizationToken === Enter Token here) {
     auth = "allow";
   }
 
