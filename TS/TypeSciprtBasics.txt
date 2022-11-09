@@ -1,0 +1,249 @@
+Live Server :  D:\NodeJs\JavaScript>live-server 
+
+TypeSciprt ( SuperSet of JS)
+
+- Strict Type
+- generics,interface,tuples
+- ES6 functions
+
+------------------------------------------------------------------------------------------------------------------
+
+SETUP
+
+TypeScripts needs to be installed so that we can compile into regular JS
+
+Install Typescript : npm install -g typescript
+	It must be installed globally or it won't be available in the path. 
+	Alternative is there if we don't want to install gloablly
+	https://stackoverflow.com/questions/35369501/tsc-is-not-recognized-as-internal-or-external-command
+
+Must be compiled in JS for it to work
+	-> Typescipt file name : sandbox.ts
+	-> Shell command : $tsc sandbox.ts sandbox.js
+	-> If sandbox.js file not present , it will create.
+	-> We we are expecting the name to be same , we can exclude sandbox.js. It will auto create 
+
+So , we cannot compile everytime, what if it autocompiles -- $tsc sandbox.ts -w
+	-> Typescript will now watch the file , everytime we make some changes and save it , its going to recompile
+
+------------------------------------------------------------------------------------------------------------------
+
+Type Basics
+
+	TS uses script types
+		Function --> Define typ of Argument --> const circ = ( diameter : number ) => {
+	
+	If there are issue with TS it won't compile
+	
+	Explicit type - typescript won't auto determine the type, it will be defined instead
+		let character : string;
+		let age : number;
+		let isLoggedIn : boolean;
+
+		let ninjas : string[]
+		let ninjas : string[] = []; // Better way to initialize
+	
+	Union Type - It can be 1 or 2,3 types
+		let mixed: (string|number)[] = [];
+		let mixed: (string|number|boolean)[] = [];
+		let uid : string|number; -> Normal variable ( No parenthesis needed )
+		let ninja1: object; -> Offers flexibility
+		let ninjaTwo : { --> Very concrete declaration
+			name : string,
+			age : number,
+			beltColor : string
+		} 
+	
+	Dynamic Type
+		let age : any = 25;
+		let mixed:any[] = []
+		let ninja : {name:any,age:any};
+		!! AVOID !!
+		
+	
+	
+
+------------------------------------------------------------------------------------------------------------------
+
+TSCONFIG.JSON
+
+	Generate :
+		$ tsc --init  --> Initializes tsconfig.json
+	Deep Dive :
+		Big file , lot of options , lets focus on few
+			rootDir --> Where our source folder will be, ex -> "rootDir": "./src",
+			outDir -> Output of our source code, ex -> "outDir": "./public",
+			"include": ["src"] --> This is placed after the compilerOptions property and tells the tsc compiler to only inlcude/compile files inside the src folder.
+	Compile ts :
+		$ tsc - Compiles and put js files in the req directory
+		$ tsc -w --> watch all files
+		
+------------------------------------------------------------------------------------------------------------------
+
+Function TYPE :
+	
+	Declaration : 
+		let greet : Function;
+			greet = () => { console.log("hello") }
+		const add = ( a : number , b : number,c?: number | string) --> notice the ? its marks the argument as optional.
+			add(5,10); -- > No error, if no value passed it becomes 'undefined' unless default value defined
+		const add = ( a : number , b : number,c: number | string = 10) =>{ console.log(a+b); }
+			-> So above its either something passed for c or it becomes 10 but not 'undefined'
+	
+	Declare Return if you don't want to infer the return type 
+		const minus = ( a: number,b:number) :number => { return a + b; }
+		
+	Type Alias :
+		
+		Lets looks at the below code : 
+		
+		const greet = ( a: number,b: string | number ) :number => { 
+		const greetAgain = ( a: number,b: string | number ) :number => { 
+		
+		--> we are repeating a lot of things, mostly the type declaration such as : 'string | number'
+		
+		Steps in Type Alias :
+		
+		type StringOrNum = string | number;
+		const greet = (a: number, b: StringOrNum): number => {
+		const greetAgain = (a: number, b: StringOrNum): number => {
+		
+		type objWithname = { name: string; uid: StringOrNum };
+		const greet = (user: objWithname) => {};
+
+	Function Signature : 
+	
+		let gree: (a: string, b: string) => void; --> Signature
+		gree = (name: string, greeting: string) => { --> Function Declaration
+			console.log(`${name} says ${greeting}`);
+		};
+		
+		With Objects:
+		let logDetails: (obj: { name: string; age: number }) => void;
+		logDetails = (ninja: { name: string; age: number }) => {
+			console.log(`${ninja.name} is ${ninja.age}`);
+		};
+		
+		We can mix the above with Type Alias
+		
+		let logDetails: (obj: { name: string; age: number }) => void;
+		type person = {name:string,age:number};
+		logDetails = (ninja: person) => {
+		
+------------------------------------------------------------------------------------------------------------------		
+Classes in TS
+	
+	Create a class : 
+		class Invoice {
+			client: string;
+			details: string;
+			amount: number;
+			
+			constructor(c: string, d: string, a: number) {
+				this.client = c;
+				this.details = d;
+				this.amount = a;
+			}
+		
+			format() {
+				return `${this.client} owes ${this.amount} for ${this.details}`;
+			}
+		}
+
+	Instantiate the class
+
+		const invOne = new Invoice("mario", "website dev", 250);
+		const invTwo = new Invoice("luigi", "backend dev", 300);
+
+		console.log(invOne,invTwo);
+
+	List of type Invoice :
+	
+		let invoices : Invoice[] = []; -> Only Objects created with Invoice class can be added to the array
+		invoices.push(invOne);
+		invoices.push(invTwo);
+		
+		console.log(invoices);
+
+------------------------------------------------------------------------------------------------------------------		
+
+Class Access modifier in TS
+
+	At class level :
+	 
+		class Invoice {
+			readonly client: string;
+			private details: string;
+			public amount: number;
+			
+	We can do the above in constructor as well ( Only works with access modifier:
+	
+		class Invoice {
+		  constructor(
+			readonly client: string,
+			private details: string,
+			public amount: number
+		  ) {}
+	
+------------------------------------------------------------------------------------------------------------------
+
+Modules in TS - ES6 Module System
+
+	Navigate to tsconfig.json and modify
+		"module": "commonjs",  -> "module": "ES2015"
+		"target": "es2016",   
+ 
+	Navigate to index.html and find <script> reference and modify
+		<script src="./public/sandbox.js"></script>
+		to
+		<script type="module" src="./public/sandbox.js"></script>
+	
+	Export from 1 file -> export class Invoice {
+	Import in Another file -> import {Invoice} from './classes/Invoice.js'
+		--> Notice .js as its compiled into native JS
+		
+
+------------------------------------------------------------------------------------------------------------------
+
+GENERICS - Reusbale blocks of code with diff types
+
+	Youtube URL : https://www.youtube.com/watch?v=IOzkOXSz9gE&list=PL4cUxeGkcC9gUgr39Q_yD6v-bSyMwKPUI&index=18
+	
+	
+	const addUID = ( obj : object) =>{
+		let uid = Math.floor(Math.random()*100);
+	return {...obj,uid};
+	}
+	
+	let docOne = addUID({name:'yoshi',age:40})
+	console.log("🚀 ~ file: sandbox.ts ~ line 25 ~ docOne", docOne)
+	console.log(docOne.name); // TSC error , for explanation watch
+	
+	to fix the issue , we use generics
+	
+	const addUID = <T>(obj: T) => {
+	const addUID = <T extends object>(obj: T) => { --> A string cannot be passed here only object , more secure
+	const addUID = <T extends {name:string}>(obj: T) => { --> Only allow objects which have a name property
+	
+	
+------------------------------------------------------------------------------------------------------------------
+
+ENUMS --> Works a little different that Java , should be handled carefully.
+
+	enum ResourceType { BOOK,AUTHOR,FILM,DIRECTOR,PERSON}
+	console.log("🚀 ~ file: sandbox.ts ~ line 17 ~ ResourceType", ResourceType)
+	{0: 'BOOK', 1: 'AUTHOR', 2: 'FILM', 3: 'DIRECTOR', 4: 'PERSON', BOOK: 0, AUTHOR: 1, FILM: 2, DIRECTOR: 3, PERSON: 4}
+
+------------------------------------------------------------------------------------------------------------------
+
+Tuples
+
+	Once we define a certian type , we cannot change the type in that position
+		let tup : [string,number,boolean] = ['ryu',25,true];
+	
+	Great options for Classes and objects ::
+	
+	let values : [string,string,number]
+	values = ["mario", "website dev", 250]
+	const invOne = new Invoice(...values);
+	
