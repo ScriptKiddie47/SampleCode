@@ -247,3 +247,20 @@ Tuples
 	values = ["mario", "website dev", 250]
 	const invOne = new Invoice(...values);
 	
+
+------------------------------------------------------------------------------------------------------------------
+
+Typescript Optional Chaining - How To Avoid Null Related Errors
+
+
+	Optional chaining will return undefined if the property doesn't exist instead of null
+
+	let course2
+	
+	if (course2?.["title"]) {
+	console.log(`The value of title is ${course2?.['title']}`);
+	}
+	https://www.youtube.com/watch?v=vxKSXMQHitw
+	
+------------------------------------------------------------------------------------------------------------------
+
