@@ -1,0 +1,69 @@
+Dynamo DB ( No SQL DB )
+
+Amazon DynamoDB
+
+- No Query joins
+- No Aggregations such as 'SUM','AVG'
+- Horizontal Scaling
+- Millions of requests per seconds, trillions of row, 100s of TB of storage
+- Enables event driven programming with DynamoDB Streams
+- Low cost and auto-scaling capabilities
+- Standard & Infrequent Access (IA) Table Class
+
+DynamoDB - Basics
+
+- DynamoDB is made of Tables
+- Each table can have an infinite number of items
+- Each item has attributes (can be added over time – can be null)
+- Maximum size of an item is 400KB
+- Data types supported are:
+	-Scalar Types – String, Number, Binary, Boolean, Null
+	-Document Types – List, Map
+	-Set Types – String Set, Number Set, Binary Set
+
+
+
+
+DynamoDB - Read/Write Capcity Modes
+
+- Control how you manage your table’s capacity (read/write throughput)
+-Provisioned Mode (default)
+	You specify the number of reads/writes per second
+	You need to plan capacity beforehand
+	Pay for provisioned read & write capacity units
+-On-Demand Mode
+	Read/writes automatically scale up/down with your workloads
+	No capacity planning needed
+	Pay for what you use, more expensive ($$$)
+-You can switch between different modes once every 24 hours
+
+R/W Capacity Modes – Provisioned
+	
+	Table must have provisioned read and write capacity units
+	Read Capacity Units (RCU) – throughput for reads
+	Write Capacity Units (WCU) – throughput for writes
+	Option to setup auto-scaling of throughput to meet demand
+	Throughput can be exceeded temporarily using “Burst Capacity”
+	If Burst Capacity has been consumed, you’ll get a “ProvisionedThroughputExceededException”
+	It’s then advised to do an exponential backoff retry
+
+WCU is ignored as we won't be doing many writes on the Dynamo DB
+
+Dynamo DB has 2 kinds of read-modes
+
+Strongly Consistent Read vs. Eventually Consistent Read
+	Eventually Consistent Read (default)
+		If we read just after a write, it’s possible we’ll get some stale data because of replication
+	Strongly Consistent Read
+		If we read just after a write, we will get the correct data
+		Set “ConsistentRead” parameter to True in API calls (GetItem, BatchGetItem, Query, Scan)
+		Consumes twice the RCU ( $$$ & more latency )
+
+
+RCU 
+
+	One Read Capacity Unit (RCU) represents one Strongly Consistent Read per second, or two Eventually Consistent Reads per second, for an item up to 4 KB in size
+	If the items are larger than 4 KB, more RCUs are consumed and going to be rounded up to the nearest upper KB
+	
+	
+Item Size : https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithItems.html
