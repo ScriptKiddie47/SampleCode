@@ -264,3 +264,12 @@ Typescript Optional Chaining - How To Avoid Null Related Errors
 	
 ------------------------------------------------------------------------------------------------------------------
 
+JEST 
+
+npm install --save-dev jest
+npm install --save-dev ts-jest
+npm i --save-dev @types/jest
+
+One line : npm install --save-dev jest --save-dev ts-jest --save-dev @types/jest
+
+Configuration file creation : npx ts-jest config:init
