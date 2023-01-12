@@ -15,4 +15,9 @@ describe("Test async Functions", () => {
         expect(returnStringFile.returnString).toHaveBeenCalled();
         expect(returnStringFile.returnString).toHaveBeenCalledTimes(1);
     })
+
+    test("Async Function With Error", async () => {
+        returnStringFile.returnString = jest.fn().mockRejectedValue(new Error('String Missing'));
+        await expect(asyncCalls.returnFinalStringWithError("Syndicate")).rejects.toEqual(TypeError("Incorrect Data"))
+    })
 })
