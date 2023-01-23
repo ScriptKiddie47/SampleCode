@@ -15,3 +15,11 @@
 8. npm i dotenv
 9. npm i -D @types/aws-lambda
 10. npm install winston
+11. npm install --save-dev jest
+12. npm install --save-dev babel-jest @babel/core @babel/preset-env
+13. npm i --save-dev @types/jest
+14. npm install --save-dev @babel/preset-typescript
+
+## Jest Command After step 11
+
+1. jest --init for initial File

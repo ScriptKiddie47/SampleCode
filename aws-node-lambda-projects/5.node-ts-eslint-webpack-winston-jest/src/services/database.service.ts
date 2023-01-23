@@ -6,7 +6,7 @@ import * as dotenv from "dotenv";
 dotenv.config();
 
 // Global Variables
-export const collections: { grades?: mongoDB.Collection } = {};
+export const collections : { grades?: mongoDB.Collection } = {};
 
 // Initialize Connection
 export async function connectToDatabase(): Promise<void> {
