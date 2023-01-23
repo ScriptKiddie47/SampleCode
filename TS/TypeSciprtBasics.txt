@@ -25,6 +25,18 @@ Must be compiled in JS for it to work
 
 So , we cannot compile everytime, what if it autocompiles -- $tsc sandbox.ts -w
 	-> Typescript will now watch the file , everytime we make some changes and save it , its going to recompile
+	
+By Default , tsc compiler uses ES5
+
+-------------------------------------------
+
+JS - Types
+
+	number,string,boolean,null,undefined,object
+
+TS - Types 
+
+	any,unknown,never,enum,tuple
 
 ------------------------------------------------------------------------------------------------------------------
 
