@@ -6,8 +6,8 @@ import Grades from "./models/grades";
 
 
 export const handler = async (event: APIGatewayEvent, context: Context): Promise<APIGatewayProxyResult> => {
-    logger.debug(`Event: ${JSON.stringify(event, null, 2)}`);
-    logger.debug(`Context: ${JSON.stringify(context, null, 2)}`);
+    logger.debug(`Event: ${JSON.stringify(event)}`);
+    logger.debug(`Context: ${JSON.stringify(context)}`);
     await connectToDatabase();
     const grades : Grades = await getGrades();
     return {

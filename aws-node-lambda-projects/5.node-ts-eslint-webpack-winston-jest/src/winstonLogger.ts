@@ -5,7 +5,7 @@ export const logger = createLogger({
   transports: [new transports.Console()],
   format: format.combine(
     format.printf(({ level, message }) => {
-      return `${level}: ${message}`;
+      return `${level.toUpperCase()}: ${message}`;
     })
   ),
 });
