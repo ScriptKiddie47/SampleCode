@@ -7,5 +7,5 @@ export const logger = createLogger({
     format.printf(({ level, message }) => {
       return `${level.toUpperCase()}: ${message}`;
     })
-  ),
+  ), 
 });

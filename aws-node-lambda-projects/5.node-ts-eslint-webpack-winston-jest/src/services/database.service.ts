@@ -10,6 +10,10 @@ export const collections: { grades?: mongoDB.Collection } = {};
 
 // Initialize Connection
 export async function connectToDatabase(): Promise<void> {
+  // Once we connect to the database once, we'll store that connection and reuse it so that we don't have to connect to the database on every request
+  if (collections.grades) {
+    return;
+  }
   const db_con_string = process.env.DB_CONN_STRING || "";
   const collection_name: string = process.env.GRADES_COLLECTION_NAME || "";
   const client: mongoDB.MongoClient = new mongoDB.MongoClient(db_con_string);
@@ -21,4 +25,3 @@ export async function connectToDatabase(): Promise<void> {
     `Successfully connected to database: ${db.databaseName} and collection: ${gamesCollection.collectionName}`
   );
 }
-
