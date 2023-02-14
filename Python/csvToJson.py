@@ -1,3 +1,4 @@
+import os
 import csv
 import json
 
@@ -8,9 +9,8 @@ with open('stateList.csv', mode='r')as file:
     csvFile = csv.reader(file)
     # displaying the contents of the CSV file
     for lines in csvFile:
-        stateList.append(lines);
+        stateList.append(lines)
 
-import os
 if os.path.exists("demofile2.json"):
     os.remove("demofile2.json")
 else:
@@ -18,9 +18,9 @@ else:
 
 f = open("demofile2.json", "a")
 for list in stateList:
-    stateOb = { "name":list[0],"literal":list[1] }
+    stateOb = {"name": list[0], "literal": list[1]}
     responseList.append(stateOb)
-    
+
 print(responseList)
 f.write(json.dumps(responseList))
 f.close()
