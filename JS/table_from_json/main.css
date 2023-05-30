@@ -1,0 +1,14 @@
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  border-style: dotted;
+  text-align: center;
+  padding: 7px;
+  font-family: "Trebuchet MS", sans-serif;
+}
+
+tr:hover {
+  background-color: #d6eeee;
+}
