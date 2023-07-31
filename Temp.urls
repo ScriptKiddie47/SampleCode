@@ -13,3 +13,6 @@ sparse-bitfield
 tr46
 webidl-conversions
 whatwg-rul
+
+
+https://github.com/open-telemetry/opentelemetry-js-contrib/blob/main/plugins/node/opentelemetry-instrumentation-mongodb/examples/src/client.ts
