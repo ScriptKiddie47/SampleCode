@@ -1,0 +1,8 @@
+## Java Installation 
+### Download JDK's from https://jdk.java.net/
+open .bashrc file in preferred editor - $ xed ~/.bashrc & paste the below code 
+export JAVA_HOME=/usr/lib/jvm/jdk-17.0.2
+export PATH=$PATH:$JAVA_HOME/bin
+
+Gradle 
+export PATH=$PATH:/opt/gradle/gradle-8.2.1/bin
