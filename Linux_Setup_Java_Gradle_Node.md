@@ -4,6 +4,8 @@
 2. export JAVA_HOME=/usr/lib/jvm/jdk-17.0.2
 3. export PATH=$PATH:$JAVA_HOME/bin
 4. Final Command : $ sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk-17.0.2/bin/java" 1
+https://community.linuxmint.com/tutorial/view/1372
+
    
 ```
 syndicate@syndicate-H610M-H-DDR4 / $ java -version
