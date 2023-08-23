@@ -8,7 +8,7 @@ Now we can go inside the container and try using the CLI
 -it ==> Interactive Terminal
 
 ```
-syndicate@syndicate-H610M-H-DDR4 ~ $ 
+syndicate@syndicate-H610M-H-DDR4 ~ $ docker exec -it redis redis-cli
 127.0.0.1:6379>
 ```
 
