@@ -77,3 +77,20 @@ model_id  model_name      model_base_price  brand_id
 sqlite>
 ```
 
+### SQLite Clear Console
+
+1. For Linux : `sqlite> .shell clear`
+
+
+### Table Describe - pragma
+
+```
+sqlite> pragma table_info(models);
+cid  name              type         notnull  dflt_value  pk
+---  ----------------  -----------  -------  ----------  --
+0    model_id          INTEGER      0                    1 
+1    model_name        VARCHAR(50)  1                    0 
+2    model_base_price  INTEGER      1                    0 
+3    brand_id          INTEGER      1                    0 
+sqlite> 
+```
