@@ -24,8 +24,7 @@ COPY . /app
 EXPOSE 80
 CMD ["node","server.js"]
 ```
-6. 
-
+6. We can only remove images for which containers are removed as well
 
 
 
