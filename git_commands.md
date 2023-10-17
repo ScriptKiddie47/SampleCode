@@ -11,7 +11,10 @@
 | `$ git difftool` | Compares between local working dir & stagging area using the diff tool | 
 | `$ git diff HEAD` | Working directory & last commit | 
 | `$ git diff --staged HEAD` | Compares between stagged vs Head ( Latest commit ) | 
-| `$ git diff --staged HEAD` | Compares between stagged vs Head ( Latest commit ) | 
+| `$ git diff -- README.md` | Compares between local & stagging area for a single file | 
+| `$ git difftool 467727d af34a60` | Compares between 2 commits | 
+| `$ git difftool HEAD HEAD^` | Compares Head and Head - 1  | 
+| `$ git difftool HEAD HEAD^` | Compares Head and Head - 1  |
 
 
 ### Create Git Alias
