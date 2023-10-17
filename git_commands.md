@@ -6,7 +6,13 @@
 | `$ git log d2a71d7...3424cc5 --oneline --graph --decorate` | Show all logs between couple of commits |
 | `$ git log -- robots.txt` | Show all commits for a single file |
 | `$ git log --follow -- level1/level2/level2filev2.txt`| Commit History of specific file going through renames |
-| `$ git show 239830cf0fbc73121aa80ad70e3251d4aba9e4a6 `| Show information about a specific commit | 
+| `$ git show 239830cf0fbc73121aa80ad70e3251d4aba9e4a6`| Show information about a specific commit | 
+| `$ git diff`| Compares between local working dir & stagging area | 
+| `$ git difftool` | Compares between local working dir & stagging area using the diff tool | 
+| `$ git diff HEAD` | Working directory & last commit | 
+| `$ git diff --staged HEAD` | Compares between stagged vs Head ( Latest commit ) | 
+| `$ git diff --staged HEAD` | Compares between stagged vs Head ( Latest commit ) | 
+
 
 ### Create Git Alias
 ```
@@ -29,7 +35,7 @@ $ cat .gitconfig
 ```
 How to use alias : $ git hist
 
-###  Integrate Merge/Diff Tool : P4 Merge
+###  Integrate Merge/Diff Tool : Meld
 
 ```
 $ git config --global diff.tool meld
