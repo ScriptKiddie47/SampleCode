@@ -27,5 +27,34 @@ $ cat .gitconfig
    5   │     hist = log --all --oneline --graph --decorate
 ───────┴────────────────────────────────────────────────────
 ```
-
 How to use alias : $ git hist
+
+###  Integrate Merge/Diff Tool : P4 Merge
+
+```
+$ git config --global diff.tool meld
+$ git config --global difftool.meld.path /home/syndicate/Documents/Tools/meld-3.22.0/bin/meld
+$ git config --global merge.tool meld
+$ git config --global mergetool.meld.path /home/syndicate/Documents/Tools/meld-3.22.0/bin/meld
+```
+```
+$ cat .gitconfig 
+───────┬───────────────────────────────────────────────────────────────────────────────────────────
+       │ File: .gitconfig
+───────┼───────────────────────────────────────────────────────────────────────────────────────────
+   1   │ [user]
+   2   │     email = ritambala@live.com
+   3   │     name = syndicate
+   4   │ [alias]
+   5   │     hist = log --all --oneline --graph --decorate
+   6   │ [diff]
+   7   │     tool = meld
+   8   │ [difftool "meld"]
+   9   │     path = /home/syndicate/Documents/Tools/meld-3.22.0/bin/meld
+  10   │ [merge]
+  11   │     tool = meld
+  12   │ [mergetool "meld"]
+  13   │     path = /home/syndicate/Documents/Tools/meld-3.22.0/bin/meld
+───────┴─────
+
+```
