@@ -15,8 +15,12 @@
 | `$ git difftool 467727d af34a60` | Compares between 2 commits | 
 | `$ git difftool HEAD HEAD^` | Compares Head and Head - 1  | 
 | `$ git branch -a` | Git See all branches ( -a is upstream ) |
-| `$ git difftool HEAD HEAD^` | Compares Head and Head - 1  |
-| `$ git difftool HEAD HEAD^` | Compares Head and Head - 1  |
+| `$ git branch xyz ` | Creates a branch called xyz |
+| `$ git checkout xyz ` | Switches to branch xyz |
+| `$ git checout -b xyz ` | Creates a branch called xyz & switches |
+| `$ git merge xyz ` | If executed from master , merges all xyz changes in master |
+
+
 
 ### Create Git Alias
 ```
