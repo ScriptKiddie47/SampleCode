@@ -19,8 +19,9 @@
 | `$ git checkout xyz ` | Switches to branch xyz |
 | `$ git checout -b xyz ` | Creates a branch called xyz & switches |
 | `$ git merge xyz ` | If executed from master , merges all xyz changes in master |
-| `$ git merge xyz ` | If executed from master , merges all xyz changes in master |
 | `$ git mergetool ` | When there is a conflict  post the merge command, a merge tool gets launched using this command|
+| `$ git branch -d realwork ` | Git Delete branch  |
+| `$ git merge xyz ` | If executed from master , merges all xyz changes in master |
 
 
 
