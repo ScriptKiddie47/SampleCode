@@ -14,8 +14,9 @@
 | `$ git diff -- README.md` | Compares between local & stagging area for a single file | 
 | `$ git difftool 467727d af34a60` | Compares between 2 commits | 
 | `$ git difftool HEAD HEAD^` | Compares Head and Head - 1  | 
+| `$ git branch -a` | Git See all branches ( -a is upstream ) |
 | `$ git difftool HEAD HEAD^` | Compares Head and Head - 1  |
-
+| `$ git difftool HEAD HEAD^` | Compares Head and Head - 1  |
 
 ### Create Git Alias
 ```
