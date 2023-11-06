@@ -21,6 +21,8 @@
 | `$ git merge xyz ` | If executed from master , merges all xyz changes in master |
 | `$ git mergetool ` | When there is a conflict  post the merge command, a merge tool gets launched using this command|
 | `$ git branch -d realwork ` | Git Delete branch  |
+| `$ git rebase master ` | Git rebase <source_branch>. This command is executed form Feature branch. Also allows us to do fast forward merge |
+| `$ git merge xyz ` | If executed from master , merges all xyz changes in master |
 | `$ git merge xyz ` | If executed from master , merges all xyz changes in master |
 
 
