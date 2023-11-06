@@ -23,7 +23,7 @@
 | `$ git branch -d realwork ` | Git Delete branch  |
 | `$ git rebase master ` | Git rebase <source_branch>. This command is executed form Feature branch. Also allows us to do fast forward merge |
 | `$ git rebase --abort` | Abort Rebase |
-| `$ git merge xyz ` | If executed from master , merges all xyz changes in master |
+| `$ git rebase --continue` | Once Rebase conflict resolve is completed , we can execute  |
 
 
 
