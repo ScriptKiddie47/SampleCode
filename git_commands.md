@@ -95,4 +95,36 @@ $ cat .gitconfig
 
 ```
 
-Note : Git stash only captures the tracked file by default.
+Note : 
+1. Git stash only captures the tracked file by default.
+2. 4cc88c4 (HEAD -> master, origin/master, origin/HEAD) changes after git stash - HEAD is just a pointer, master referes to local repo , origin master refers to remote repo master branch.
+
+## Tags
+
+1. Tags are just labes which we can apply on any commit in the history.
+`$ git tag myTag` - Create a lightweight tag , more like an marker on a particular commit
+2. 4cc88c4 (HEAD -> master, tag: myTag, origin/master, origin/HEAD) changes after git stash
+3. Tag list - `$ git tag --list`
+4. We can use the name of the tag in other git commands for reference - `$ git show myTag`
+5. Delete tag : `$ git tag --delete myTag` -->  Deleted tag 'myTag' (was 4cc88c4)
+
+ ### Annotated Tag : 
+ 1. Contains extra information : `$ git tag -a v-1.0`
+ 2. $ `git hist` -> 4cc88c4 (HEAD -> master, tag: v-1.0, origin/master, origin/HEAD) changes after git stash
+
+Also the show command displays more data : 
+
+```
+Syn: ~/Documents/CodeSource/Github/starter-web (master)
+$ git show v-1.0 
+tag v-1.0
+Tagger: syndicate <ritambala@live.com>
+Date:   Tue Nov 7 15:31:23 2023 +0530
+
+Release 1.0
+
+commit 4cc88c479ae66b5dcd4f56595a8ee6910fd17a15 (HEAD -> master, tag: v-1.0, origin/master, origin/HEAD)
+Author: syndicate <ritambala@live.com>
+Date:   Tue Nov 7 14:54:02 2023 +0530
+```
+
