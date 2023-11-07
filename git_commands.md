@@ -24,7 +24,12 @@
 | `$ git rebase master ` | Git rebase <source_branch>. This command is executed form Feature branch. Also allows us to do fast forward merge |
 | `$ git rebase --abort` | Abort Rebase |
 | `$ git rebase --continue` | Once Rebase conflict resolve is completed , we can execute  |
-
+| `$ git status` | Create Git Stash  |
+| `$ git stash apply` | Apply Git Stash |
+| `$ git stash list` | View Stash List |
+| `$ git stash drop` | Drop last stash | 
+| `$ git stash drop` | Drop last stash | 
+ 
 
 
 ### Create Git Alias
@@ -77,3 +82,5 @@ $ cat .gitconfig
 ───────┴─────
 
 ```
+
+Note : Git stash only captures the tracked file
