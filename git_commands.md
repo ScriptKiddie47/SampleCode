@@ -28,7 +28,9 @@
 | `$ git stash apply` | Apply Git Stash |
 | `$ git stash list` | View Stash List |
 | `$ git stash drop` | Drop last stash | 
-| `$ git stash drop` | Drop last stash | 
+| `$ git stash -u` | Stash Untracked files as well | 
+| `$ git stash pop` | Apply Stash and delete it | 
+| `$ git stash -u` | Stash Untracked files as well | 
  
 
 
@@ -83,4 +85,4 @@ $ cat .gitconfig
 
 ```
 
-Note : Git stash only captures the tracked file
+Note : Git stash only captures the tracked file by default.
