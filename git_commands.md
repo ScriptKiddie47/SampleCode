@@ -127,4 +127,5 @@ commit 4cc88c479ae66b5dcd4f56595a8ee6910fd17a15 (HEAD -> master, tag: v-1.0, ori
 Author: syndicate <ritambala@live.com>
 Date:   Tue Nov 7 14:54:02 2023 +0530
 ```
-
+3. Tag a specific commit - `$ git tag -a v-0.9-beta 3a14bb4`
+4. 
