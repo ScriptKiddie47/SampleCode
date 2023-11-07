@@ -31,6 +31,16 @@
 | `$ git stash -u` | Stash Untracked files as well | 
 | `$ git stash pop` | Apply Stash and delete it | 
 | `$ git stash -u` | Stash Untracked files as well | 
+| `$ git stash save "simple change"` | Create a stash with a commit message |
+| `$ git stash show stash@{1}` | Show changes for a particular stash |
+| `$ git stash apply stash@{1}`| Apply a specific stash | 
+| `$ git stash drop stash@{1}`| Drop a specific stash | 
+| `$ git stash clear`| Remove all stashes | 
+| `$ git stash branch newchanges`| Create a new branch wth stash changes and delete stash | 
+| `$ git stash clear`| Remove all stashes | 
+
+
+
  
 
 
