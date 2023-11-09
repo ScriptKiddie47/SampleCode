@@ -38,6 +38,7 @@
 | `$ git stash clear`| Remove all stashes | 
 | `$ git stash branch newchanges`| Create a new branch wth stash changes and delete stash | 
 | `$ git stash clear`| Remove all stashes | 
+| `$ git reset d6114f4`| Returns back to an old commit | 
 
 
 
