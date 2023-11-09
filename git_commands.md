@@ -128,4 +128,4 @@ Author: syndicate <ritambala@live.com>
 Date:   Tue Nov 7 14:54:02 2023 +0530
 ```
 3. Tag a specific commit - `$ git tag -a v-0.9-beta 3a14bb4`
-4. 
+4. Push tag to Github - $ git push origin v-0.9-beta
