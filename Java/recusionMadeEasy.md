@@ -1,4 +1,4 @@
-## Function Calling another Function
+## Function Calling another Function & take it easy.
 ### Example 1:
 ```
 printOneToFive(1);
