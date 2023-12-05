@@ -47,7 +47,7 @@ syndicate@syndicate-H610M-H-DDR4:~$ node -v
 v18.17.0
 ```
 
-### How to Add Applications Icons 
+## How to Add Applications Icons 
 
 ```
 Create a file - sudo xed /usr/share/applications/STS.desktop
