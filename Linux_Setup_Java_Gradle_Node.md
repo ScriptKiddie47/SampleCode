@@ -47,3 +47,22 @@ syndicate@syndicate-H610M-H-DDR4:~$ node -v
 v18.17.0
 ```
 
+### How to Add Applications Icons 
+
+```
+Create a file - sudo xed /usr/share/applications/STS.desktop
+
+[Desktop Entry]
+Name=SpringSource Tool Suite
+Comment=SpringSource Tool Suite
+Exec=~/springsource/sts-3.4.0-RELEASE/STS
+Icon=~/springsource/sts-3.4.0-RELEASE/icon.xpm
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=Development;IDE;Java;
+
+```
+
+
+
