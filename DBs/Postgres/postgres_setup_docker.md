@@ -20,5 +20,5 @@ sudo apt install pgadmin4
 ### How to Insert Sample DataSet 'dvdrental.tar'
 1. `$ docker cp dvdrental.tar syn-postgres:/home` - Copy file to Docker Container
 2. `$ docker exec -it syn-postgres bash` - Connect to Docker SSH bash
-3. Create Database ( I did it through DBeaver)
+3. Create Database ( I did it through DBeaver) or `root@94f0958017e8:/home# psql -d dvdrental -U postgres` & execute the command `createdb dvdrental`
 4. Navigate the home folder and execute the command : `pg_restore -c -U postgres -d dvdrental -v "dvdrental.tar" -W`
