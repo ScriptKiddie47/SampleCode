@@ -3,8 +3,8 @@
 1. open .bashrc file in preferred editor - $ xed ~/.bashrc & paste the below code 
 2. export JAVA_HOME=/usr/lib/jvm/jdk-17.0.2
 3. export PATH=$PATH:$JAVA_HOME/bin
-4. Final Command : 
-$ sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk-17.0.2/bin/java" 1
+4. Final Command :\
+$ sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk-17.0.2/bin/java" 1\
 $ sudo update-alternatives --set java /home/sbala/Documents/Tools/jdk-17/bin/java
 
 Source : https://community.linuxmint.com/tutorial/view/1372
