@@ -3,32 +3,63 @@ https://curl.se/docs/manual.html
 
 ### Get HTTP Call
 
-```
+```bash
 syndicate@syndicate-H610M-H-DDR4 ~/Desktop/Curl_Learn $ curl https://reqres.in/api/users/1
 {"data":{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}syndicate@syndicate-H610M-H-DDR4 ~/Desktop/Curl_Learn $ 
 ```
 
 ## Save Curl Response to a file ( -o)
-
-`$ curl -o output.json https://reqres.in/api/users/2`
+```bash
+$ curl -o output.json https://reqres.in/api/users/2
+```
 
 
 ### Post HTTP Call ( --data or -d )
 
-```
+```bash
 syndicate@syndicate-H610M-H-DDR4 ~/Desktop/Curl_Learn $ curl --data '{"name": "morpheus","job": "leader"}' https://reqres.in/api/users
 {"{\"name\": \"morpheus\",\"job\": \"leader\"}":"","id":"113","createdAt":"2023-08-20T18:35:16.610Z"}
+
+sbala@sbala-Nitro-AN515-52 ~ 
+$ curl --location 'http://localhost:8080/api/posts' \
+--header 'Content-Type: application/json' \
+--data '{
+    "userId": 998,
+    "id": 999,
+    "title": "DataSet1",
+    "body": "RamRajya"
+}'
 ```
+
+### PUT HTTP call
+
+```bash
+curl --location --request PUT 'http://localhost:8080/api/posts/1' \
+--header 'Content-Type: application/json' \
+--data '{
+    "userId": 1,
+    "id": 1,
+    "title": "DataSet2",
+    "body": "RamRajyaEstablished"
+}'
+```
+
+## DELETE CALL
+
+```bash
+curl --location --request DELETE 'http://localhost:8080/api/posts/1'
+```
+
 #### We can specify the method as well using -X flag
 
-```
+```bash
 syndicate@syndicate-H610M-H-DDR4 ~/Desktop/Curl_Learn $ curl -X "POST" -d '{"name": "morpheus","job": "leader"}' https://reqres.in/api/users
 {"{\"name\": \"morpheus\",\"job\": \"leader\"}":"","id":"833","createdAt":"2023-08-20T18:36:44.642Z"}
 ```
 
 ### Fetching Site Headers ( -i or --dump-header)
 
-```
+```bash
 ~/Desktop/Curl_Learn $ curl --dump-header headerDetails.txt https://reqres.in/api/users/1
 
 syndicate@syndicate-H610M-H-DDR4 ~/Desktop/Curl_Learn $ cat headerDetails.txt 
@@ -51,11 +82,13 @@ cf-ray: 7f9cc761ef444442-BOM
 ```
 
 #### To print to the Console :
-`$ curl -i https://reqres.in/api/users/1`
+```
+$ curl -i https://reqres.in/api/users/1
+```
 
 ### Timing a connection with CURL ( -w ):
 
-```
+```bash
 syndicate@syndicate-H610M-H-DDR4 ~/Desktop/Curl_Learn $ curl -w "\n%{time_total}\n" https://reqres.in/api/users/1
 {"data":{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}
 0.212709
