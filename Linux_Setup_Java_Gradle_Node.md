@@ -71,5 +71,9 @@ Categories=Development;IDE;Java;
 2. https://gogh-co.github.io/Gogh/
 3. https://askubuntu.com/questions/881949/ugly-color-for-directories-in-gnome-terminal
 
+## Cat Command Enhanced
 
+1. https://www.cyberciti.biz/open-source/bat-linux-command-a-cat-clone-with-written-in-rust/
+2. `$ sudo apt install bat`
+3. Update alias in .bashrc - `alias cat="batcat"`
 
