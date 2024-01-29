@@ -67,7 +67,9 @@ Categories=Development;IDE;Java;
 
 ## Linux Terminal Themes
 
-URL : https://github.com/Gogh-Co/Gogh
+1. URL : https://github.com/Gogh-Co/Gogh
+2. https://gogh-co.github.io/Gogh/
+3. https://askubuntu.com/questions/881949/ugly-color-for-directories-in-gnome-terminal
 
 
 
