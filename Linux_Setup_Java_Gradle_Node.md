@@ -22,7 +22,7 @@ OpenJDK 64-Bit Server VM (build 17.0.2+8-86, mixed mode, sharing)
 
 syndicate@syndicate-H610M-H-DDR4:~$ gradle -v
 
-```
+```bash
 ------------------------------------------------------------
 Gradle 8.2.1
 ------------------------------------------------------------
@@ -42,7 +42,7 @@ OS:           Linux 5.15.0-78-generic amd64
 
 1. Set the path export PATH=$PATH:/opt/node/node-v18.17.0-linux-x64/bin and you are good to go.
    
-```
+```bash
 syndicate@syndicate-H610M-H-DDR4:~$ npm -v
 9.6.7
 syndicate@syndicate-H610M-H-DDR4:~$ node -v
@@ -63,8 +63,11 @@ StartupNotify=true
 Terminal=false
 Type=Application
 Categories=Development;IDE;Java;
-
 ```
+
+## Linux Terminal Themes
+
+URL : https://github.com/Gogh-Co/Gogh
 
 
 
