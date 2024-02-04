@@ -83,7 +83,8 @@ cf-ray: 7f9cc761ef444442-BOM
 
 #### To print to the Console :
 ```
-$ curl -i https://reqres.in/api/users/1
+$ curl -i https://reqres.in/api/users/1 # Small i provides header + response
+$ curl -I https://reqres.in/api/users/1 # Caps I provides only header
 ```
 
 ### Timing a connection with CURL ( -w ):
@@ -92,6 +93,16 @@ $ curl -i https://reqres.in/api/users/1
 syndicate@syndicate-H610M-H-DDR4 ~/Desktop/Curl_Learn $ curl -w "\n%{time_total}\n" https://reqres.in/api/users/1
 {"data":{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth","avatar":"https://reqres.in/img/faces/1-image.jpg"},"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}}
 0.212709
+```
+
+### Steps curl takes to establish a HTTP/HTTPS connection
+```bash
+sbala@sbala-Nitro-AN515-52 ~ 
+$ curl -Iv https://reqres.in/api/users/1
+*   Trying 2606:4700:90db:9a77:a03b:421:9f03:2133:443...
+* Connected to reqres.in (2606:4700:90db:9a77:a03b:421:9f03:2133) port 443 (#0)
+* ALPN, offering h2
+..
 ```
 
 
