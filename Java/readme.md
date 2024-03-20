@@ -4,6 +4,7 @@
 |     :---:      |    :---: |  :---: |
 | `Java Multithreading`   | `Venkat Subramaniam` | [Youtube Link](https://www.youtube.com/watch?v=6EQcpkSgsR8&ab_channel=Devoxx) |
 | `From Web to Flux: Tackling the Challenges of Reactive Programming`   | `Victor Rentea` | [Youtube Link](https://www.youtube.com/watch?v=wsgJU5S1rRY) |
+| `Performance oriented Spring Data JPA & Hibernate`   | `Maciej Walkowiak` | [Youtube Link](https://www.youtube.com/watch?v=exqfB1WaqIw&t=711s) |
 
 
 # Java Source Code Example 
