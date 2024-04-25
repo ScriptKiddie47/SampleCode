@@ -1,0 +1,33 @@
+.scrollable-table {
+    margin: auto;
+    height: 500px;
+    width: 200px;
+    overflow-y: auto;
+}
+
+.scrollable-table > .table{
+    width: 100%;
+}
+
+.table {
+  width: 200px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 16px;
+  border-collapse: collapse;
+  
+}
+
+
+.table th{
+    text-align: center;
+    background-color: #009578;
+    position: sticky;
+    top: 0;
+    padding: 6px;
+}
+
+.table td{
+    text-align: center;
+    padding: 2px;
+    background-color: aliceblue;
+}
