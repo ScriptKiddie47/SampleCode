@@ -118,6 +118,7 @@ npm i -D @types/node
 ## WEBPACK 
 
 1. `npm install -D webpack-cli`
+1. `npm install -D ts-loader`
 1. https://webpack.js.org/guides/typescript/
 1. webpack.config.js file for commonJS 
 
@@ -163,6 +164,4 @@ module.exports = {
   testEnvironment: 'node',
 };
 ```
-
-
 
