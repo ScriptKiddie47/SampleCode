@@ -53,3 +53,21 @@
 	   }
    }
    ```
+1. Service Code to make it make the function resuable
+  
+   ```java
+	   @SuppressWarnings("unchecked")
+	   public <T extends CsvClasses> List<T> readCSVFromFile(T obj, String filename){
+		   try {
+			   InputStream inputStream = new ClassPathResource(filename).getInputStream();
+			   Reader targetReader = new InputStreamReader(inputStream);
+			   return new CsvToBeanBuilder<T>(targetReader)
+				          .withType((Class<? extends T>) obj.getClass())
+				          .build()
+				          .parse();
+		   } catch (Exception    e) {
+			   e.printStackTrace(); 
+		   }
+		   return null;
+	   }
+   ```
