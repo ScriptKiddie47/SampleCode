@@ -4,4 +4,5 @@
 1. Serverless is the most profitable misnomer in human history
 1. How did you become homeless?
    - I used Vercel
+1. Premature Optimization is the root of all evil - Donald Knuth 
 
