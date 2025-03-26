@@ -77,3 +77,15 @@ Categories=Development;IDE;Java;
 2. `$ sudo apt install bat`
 3. Update alias in .bashrc - `alias cat="batcat"`
 
+## Git Terminal [ bash.rc file ]
+
+```
+parse_git_branch() {
+     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+export PS1="\u@\h \[\e[32m\]\w \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
+```
+
+## Terminal Themes 
+
+1. Terminal Themes  :  bash -c "$(wget -qO- https://git.io/vQgMr)"

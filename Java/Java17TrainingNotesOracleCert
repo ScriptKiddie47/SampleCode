@@ -1,0 +1,429 @@
+Symbols : ✓ , ✔ , ❌ , ✘ ,☓ , ✅
+
+Short Circuit Evaluation - || &&
+Switch - Single lines - don't use yield
+StringBuffer - ThreadSafe
+StringBuilder - Thread Unsafe , better performance
+String textBlocks - New escape sequences are introduced and should be used sparingly
+Wrapper:
+    xxx.ValueOf() to convert to wrapper --> Integer.valueOf(10); returns Integer
+    xx.xxxValue() to convert back to primitive --> bInt.intValue(); return int
+    XXXX.parseXX() String to Primitive --> Integer.parseInt(name); returns int
+    It is recommended not to use wrapper class constructors
+
+Old Date Logic  -> java.ut. Current -> java.time
+Classes - LocalDate,LocalTime,LocalDateTime
+
+var today = LocalDate.of(2023, Month.MAY, 31); // Today is immutable , method calls won't effect. ✅✅
+
+Duration(nanoseconds) ,Period,Instant, ZonedDateTime
+java.util.Locale - represents languages and countries
+java.util.NumberFormat - class to parse diff date time
+java.time.format.DateTimeFormatter - format ,set pattern
+java.util.ResourceBUndle class - Localizable Resource
+
+Constants - 'final '
+1. Instance final variables must be either initialized immediately or via constructors
+2. Final class cannot be extended , subclass cannot override a superclass method marked with final.
+
+Static Context - 'static'
+   => Combining static & final - Good Global constant
+   => Non-static field cannot be referenced from a static context 
+   => Static methods cannot be overriden , so abstract method can't be static
+   
+   class Bank{
+       static int goldPrice = 10;
+       int silverPrice = 20;
+       static void func(){
+           silverPrice--; --> Not Allowed
+           goldPrice++; --> Allowed
+           defunct(); --> Not Allowed
+       }
+       void defunct(){}
+   }
+
+   class Person {
+       { instance initializer } -> Triggered before the constructor
+       static { class initializer } --> initialize static variables
+   }
+
+   Static Class vs Nested Class
+   => The main difference between these two is that the inner classes have access to all members of the enclosing 
+   class (including private ones), whereas the static nested classes only have access to static members of the outer class.
+   => In fact, static nested classes behave exactly like any other top-level class, 
+   but are enclosed in the only class that will access it, to provide better packaging convenience.
+
+Encapsulation -> Data hiding , using private etc etc..
+Enum values are implicitly - public,static & final. Enum with switch is good pattern
+Complex enumerations - Can define variables and method
+
+Stack - Memory context of thread, local method variables, primitives and object references
+Heap - Shared memory from diff methods,classes and objects
+
+
+Reference TypeCasting- This is a bitch as well
+    - Casting is requied to assign parent to child reference
+    - Use pattern matching instanceof --> if ( obj instanceof String s) // Use s directly
+
+Polymorphism - Method override
+
+Any class that is 'sealed' must define permits, any permitted class must either be sealed and permit,final or non-sealed
+
+== -> compares value in stack , good for primitives & object references but not actual objects
+equals method --> Good for actual object comparision 
+hashcode -> object identity as int value.
+
+record class
+    -> implicitly final
+    -> cannot declare native methods    
+    -> doesn't have a extends clause
+    -> Can declare instance methods
+
+Java Interfaces 
+    -> concrete methods only if they are default private or static
+    -> can contain constants not variables
+    -> Intefaces solve multiple inheritance problems
+    -> If there is an conflict during method overriding if your class implements 2 interfaces , treat the default method as abstract ( This is quite a good example ) 
+    -> Interface is a type, it can used with instance off.
+
+@FunctionalInterface - One abstract method
+Comparable Interface - int compareTo(T o) , POJO class implements Comparable<T>
+Comparator Interface - int compare(T o1,T o2), POJO class doesn't need to implement Comparator<T>, Better readability.
+
+Array Copy 
+    -> System.arraycopy
+    -> Arrays.copyOf ( java.util.Arrays )
+    -> Arrays.copyOfRange ( java.util.Arrays )
+
+interface Collection<E> extends Iterable<E> --> interface Iterable<T>
+interface Map<K, V> is very different
+
+Hashmap -> Allows one null key , multiple null values
+   -> 🌟🌟 If we use the remove(Object key) in a loop it throws ConcurrentModificationException on second try
+java.util.collections --> Class provides methods for handling collections
+Prevent collection corruption --> 
+    Unmodifiable ( fast but readonly )  - Collections.synchronizedMap(null);
+    Synchronized ( Slow and unscalable )    - Collections.unmodifiableSet(null);
+    Copy-on-write ( fast , but consumes memory ) - new CopyOnWriteArrayList<>();
+Note : All legacy collections were defined as synchronized
+
+Unlike lists, sets do not accept duplicates
+Unlike TreeSet, HashSet is not ordered
+Queue and Deque interfaces are used when elements are added and removed in a specific order, 
+not when you don't want to allow duplicate elements
+TreeSet does not allow null values
+Remember: Collections that involve sorting do not allow null values.🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟
+
+ 
+Nested Class -> static,member,local & anonymouse inner class
+Lambda Expression -> Inline implementation of a functional interface.
+Streams
+    -> BaseStream
+    -> Stream,DoubleStream,IntStream,LongStream extends BaseStream
+
+Functional Interfaces:
+    -> 🌟 Predicate<T> boolean test(T t) to apply conditions to filter elements
+    -> Function<T,R> R apply(T t) to convert types of elements
+      -> Function is responsible for turning one parameter into a value of a potentially different type and returning it
+    -> UnaryOperator<T>
+    -> 🌟 Consumer<T> void accept(T t) to process elements ( no result )
+      -> You use a Consumer when you want to do something with a parameter but not return anything
+    -> 🌟 Supplier<T> T get() to produce elements
+      -> A Supplier is used when you want to generate or supply values without taking any input
+
+Steam collect method accepts collector interface.
+@FunctionalInterface annotation is not mandatory for a functional interface 🌟
+
+
+
+=======================================================================================
+
+Legal Entry points: ✅
+public static void main(String... args) { } -> Varangs are allowed in main function
+public static void main(final String[] args) { } -> final String array also allowed as well.
+
+Primitive Variable Initialization cannot be performed on the same line for multiple variables:
+int x,y;
+x=1y=2; --> Incorrect.❌
+
+Mixing switch expression and statements are not allowed ❌
+
+All Interface are implicitly abstract so we can write the below :
+abstract interface X { } --> This is valid ✅
+final interface A1 {.. --> Interfaces cannot be final ❌
+
+Generally String arrays are sorted alphabetically so the  order is :
+Numbers --> UpperCase -->  LowerCase ✅
+
+Optional.of(null) --> Throws a null pointer expection at Runtime ❌
+   Because it checks at runtime whether the value being passed is null or not.
+   orElseThrow() -> throws a NoSuchElementException
+
+Exception 
+Checked -> At compile time , need to throw or put it under trycatch -> IOException,FileNotFoundException,SQLException ✅
+Unchcked -> Not checked at compile time -> ClassCastException,ArrayIndexOutOfBoundsException,NullPointerException,ArithmeticException ✅
+
+Module :
+   public keyword is not allowed for module declaration - ❌
+   Module names may include periods/dots ✅
+   Module names are not allowed to have dashes ❌
+   The exports directive is used with packages only ✅ classes are not considered ❌
+   The provides & uses directives are used when sharing and consuming a service. ✅
+ 
+Stream :
+.sorted(Comparator::reverseOrder()) --> Invalid ❌ as they are not compatible
+
+Operators
+   Take a rough look at operator precedence --> ✅
+   Operators that are evaluated from right to left -> cast,ternary,assigment,arrow
+   Types of Operators ::
+      Arithmetic Operators - 
+      Unary Operators - ++,--,!,Bitwise complement(~),cast operator
+      Assignment Operators - ==
+      Relational Operators - >=,<=.
+      Logical Operators - &&,||,!
+
+java.lang.Integer cannot be cast to java.lang.Long  ❌
+
+StringBuilder 
+   String sb2 = new StringBuilder(22).toString(); --> sb2 is actually ""; ✅
+   StringBuilder and String are incompatible types ❌
+
+      StringBuilder s = new StringBuilder("abc");
+		s.append("cbd");
+		System.out.println(s); // abccbd
+
+Modules Provided by JDK
+    java.base  ✅ 
+    jdk.net  ✅
+    java.logging  ✅
+    jdk.javadoc  ✅
+    javax.sql ❌
+
+var can only be used for local variable type inference: ✅
+    class A{
+        var x = .. ❌ compile fails here
+        main(..
+    }
+var cannot be initialized with a null value ❌
+
+Switch statement doesn't allow long,Long,double & Double ❌
+
+Interface rules are the following:🌟🌟🌟🌟🌟🌟
+    ✅Interfaces are implicitly abstract;
+    ✅Interface fields are implicitly public, static, and final;
+    ✅Interface methods without a body are implicitly abstract;
+    ✅Interface methods without the private modifier are implicitly public
+    ✅Interface methods that are allowed with modifiers - abstract , default , private static 
+
+var list = new ArrayList<>();
+list is of type ArrayList<Object> because there is no type specified in the diamond operator.
+
+You cannot iterate a Stream object with an enhanced for-loop because they do not implement the Iterable interface
+Stream<Integer> list = Stream.of(1, 2, 3, 4, 5);
+        for (Integer val : list) { .. Compile error ❌
+
+jlink - Tool to assemble and optimize a set of modules and their dependencies into a custom runtime image ✅
+jdeps - You can use the jdeps command to launch the Java class dependency analyzer ✅
+   Whereas you can have cyclic dependencies between packages, 
+   you cannot have cycling dependencies between modules. 
+   Java prevents you from writing code that have such cyclic dependencies and also the code will not compile.
+
+When using literals, underscores can be added anywhere except at the beginning of a literal, at the end of a literal, right before decimal point, or right after the decimal point.
+Valid Examples : 4_00_0.0_0 , 5_6 , 6_7_8 ✅
+Invalid Examples : _100.00 , 2000.00_ , 300_.00 ❌
+
+Control Flow Statements ::
+    Decision making statements - if,switch ✅
+    Looping statements - for,while ✅
+    Branching statements - break,continue,returns ✅
+
+Java IO:
+   Streams - sequence of data ( data can be 2 types - byte & unicode character ) ✅
+           - java performs I/O throught streams
+           - Abstraction that java provides
+           - Java implements these Stream within class heirarchies in java.io package.
+
+   System.in ( in is the reference to InputStream )
+   
+   Java Predefined Streams
+      -> System.out (InputStream) -> std os -> console
+      -> System.in (OutputStream) -> std in -> keyboard
+      -> System.err -> std err -> console
+
+   Note: Scanner is outside of InputStream / Reader
+
+   Ex : 
+      BufferedReader in = new BufferedReader(new InputStreamReader(System.in));  ✅ 
+      BufferedReader reader = new BufferedReader(new FileReader(file)); ✅
+
+enum classes must declare at least one enum constant ✅
+
+sealed classes must specify a valid permits clause ✅
+sealed interfaces must specify the permits clause ✅
+
+Create Parallel Streams
+   var list = List.of(1, 5, 10, 15, 20);
+   list.parallelStream() ✅
+   list.streams().parallel() ✅
+
+Files.readAllLines() --> returns a list not a stream
+
+
+SQL ✅::✅::🌟🌟🌟🌟🌟🌟
+
+   setAutoCommit(boolean b) is the method used to set the mode for whether to commit right away
+   commit() is used to save data in database
+   rollback() is used to undo all changes made in the current transaction
+   setSavepoint() is used to create an unnamed savepoint in the current transaction
+   setSavepoint(String name) is used to create a savepoint with name in the currnt transaction
+   Connection is used to sends commands to a database
+   CallableStatement is used to execute commands stored in the database
+   PreparedStatement is used to execute a SQL query
+   ResultSet is used to read the results of a query
+   Driver ( Interface ) is used to establish a connection to the database. Class is DriverManager
+   
+   The ResultSet is closed first, followed by the PreparedStatement (or CallableStatement) and then the Connection
+
+Method Overloading is not possible by changing the return type of method only becuase of ambiguity  ❌
+
+Java Commands ::
+   You can use the --show-module-resolution ✅ to get a more verbose output when 
+   you want to debug Java modules. Therefore, Option F is the correct answer.
+
+   -d option specifies the target directory
+
+Java Collections concurrent classes where data is sorted 
+   ConcurrentSkipListMap
+   ConcurrentSkipListSet
+
+Math ops ::: 🌟🌟
+      Math.round(123.55); //124  removes decimals 
+		Math.ceil(234.46); // 235.0
+		Math.floor(12.34); // 12.0	
+
+      Math.min(), Math.max(), Math.ceil() and Math.floor() methods can return negative values. 
+      However, the Math.random() method always returns a positive number greater than or equal 0.0 and less than 1.0
+
+Varangs::🌟
+   A method can have at most one varargs parameter
+   If a method contains a varargs parameter , it must be the last parameter in the list
+   Java treats varargs as if they were an array.
+
+Threads ::
+   🌟 Livelock occurs when two or more threads are conceptually blocked forever.
+   🌟 Deadlock occurs when two or more threads are blocked forever, 
+      each waiting on the other. Deadlocks appear when threads are  
+      permanently blocked, waiting on resources that will never become available 
+
+Unique Data Types :
+   Volatile instructs the JVM that the value in the variable may be modified by other threads ✅
+   Transient is used to indicate that an instance variable should not be serialized with the class ✅
+
+
+Strings :: 🌟🌟🌟 
+
+   The string pool is a location in the Java Virtual Machine that collects all the strings. 
+   The string pool contains literal values and constants that appear in your program.
+   All Strings in Java are immutable.
+
+   Substring is tricky , removes the starting elements ...!
+
+instanceof operator does not allow to be used with unrelated types ::
+   class Square { } & class Object2D{ } are not related
+    if (square instanceof Object2D) - Throws an compile time error ❌❌❌
+
+🌟 char is the only Java data type whose values are represented as 16-bit unsigned integers representing UTF-16 code units
+
+Float :: 
+   float f = 12; ✅
+   float f2 = 12.2f; // 'f' is required else error when decimal values are involved ❌
+
+Constructor :: 🌟 
+   A this() call must be the first statement in a constructor
+   Can be a private modifier
+
+Auto-Promote :::🌟🌟🌟
+The first numeric promotion rule in Java says that if two values have different data types, 
+Java will automatically promote one of the values to the larger of the two data types, 
+therefore the result d is a long value, which makes Option C the correct answer.
+
+   short a = 2; int b = 3; long c = 4;
+   var d = a * b * c; // Valid
+
+Imports:: 🌟🌟
+
+   import java.util.Arrays.*;
+   import java.util.Arrays;  
+   import static java.util.Arrays.asList;
+
+   Static imports are used to import static members. 
+   They are written as import static, not static import. 
+   Such imports need to import static methods and fields rather than class names
+
+
+Infinite Stream :: 🌟🌟
+
+Stream.generate(supplier) returns an infinite sequential unordered stream where each element is generated
+ by the provided supplier.  This is suitable for generating constant streams, streams of random elements
+
+
+Thread States ::::🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟🌟
+
+   NEW : A thread that has not yet started is in this state.
+   RUNNABLE : A thread executing in the Java virtual machine is in this state.
+   BLOCKED : A thread that is blocked waiting for a monitor lock is in this state.
+   WAITING : A thread that is waiting indefinitely for another thread to perform a particular action is in this state.
+   TIMED_WAITING : A thread that is waiting for another thread to perform an action for up to a 
+                  specified waiting time is in this state.
+   TERMINATED : A thread that has exited is in this state.
+
+What I understand in lexicographically is actually the complete opposite
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
