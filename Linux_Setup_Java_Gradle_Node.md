@@ -89,3 +89,7 @@ export PS1="\u@\h \[\e[32m\]\w \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
 ## Terminal Themes 
 
 1. Terminal Themes  :  bash -c "$(wget -qO- https://git.io/vQgMr)"
+
+## Font Settings in VSCode
+
+'JetBrains Mono', monospace
