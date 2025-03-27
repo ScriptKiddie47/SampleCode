@@ -1,0 +1,42 @@
+SHRUTOSOM BALA
+Address: Birati , Kolkata 51 | Mobile: 8599956436  |
+Email: sh.bala12@gmail.com | Linkedin: SBala|LinkedIn | GitHub: ScriptKiddie
+                                                                   
+SKILLS                              
+
+Languages: Java, JavaScript, TypeScript, SQL, XSLT, Groovy, Terraform, DataWeave
+Frameworks: JEE, Spring, JPA, Hibernate, Express.js, Thymeleaf, HTMX
+CI/CD: Jenkins, GitLab, GitHub Actions
+Test Tools: Postman, SoapUI, ReadyAPI, Jmeter
+Build Tools: Gradle, Maven, Webpack
+Cloud: AWS Suite
+Technologies & Tools: MuleSoft Suite, Tomcat, IBM Liberty, Oracle DBMS, PostgreSQL, MongoDB, JIRA, Rally, Dynatrace , DataDog, PCF, OCF, Docker, Kubernetes, IBM DevOps Deploy (formerly UrbanCode Deploy),IBM DataPower, IBM Operational Decision Manager, Snyk, BlackDuck, Kibana, OpenSearch
+                   
+WORK EXPERIENCE	                              
+
+Accenture – BENGALURU, KARNATAKA                                           			    November 2018 – Present
+     Software Developer ( Finance Domain )           
+ 
+Primarily working as the Lead Developer of an Agile team for an Insurance Client. Developing & Maintaining JEE, Spring - Boot, Node,Cloud based & Custom Financial applications. Forging robust relationships with clients and understanding business requirements. Mentoring and guiding fresh talent within the org & team.
+Spearheaded as the Lead Java Developer in automating Migration of IBM Business rule management system ( BRMS )  to Client Internal BRMS using Lexical Analysis & Syntax Analysis in Java to generate JS. The automation resulted in 50% reduction of manual efforts. Thanks to the automation 10,000 Rules were migrated to the Client BRMS platform within a period of 1 Year. Rewarded with Accenture ACE award.
+Collaborated as the Lead Java Developer for a Client RFP on deprecating IBM Datapower Gateway.Researched various alternatives applications, then demonstrated and proposed Apache Camel as the recommended solution for the RFP.
+Developed a server-less AWS Lambda application in Typescript & Terraform Infrastructure as code ( IAC ) from the ground up on AWS, utilizing AWS API Gateway, AWS Secrets Manager, and AWS Cognito for authentication. Created CI/CD flows to Deploy the application using Jenkins & Terraform Enterprise. This application is designed to handle CRUD (Create, Read, Update, Delete) operations on a MongoDB Atlas database.
+Developer a Dashboard which showcased Eligible Filing states for the Project Release as part of the Client Innovation Drive. Received great appreciation from stakeholders. The Dashboard eliminated 100% of the dependency on the data team, which only had access to the state release list. The internal tool was developed using  Java Spring Boot , Thymeleaf & HTMX. It was deployed to Cloud through OCF. 
+                                                             
+PROJECT WORK	                                       
+ 
+IPL Dashboard ( ipl-dashboard )  
+
+Browse your favorite IPL teams and access their past games details, wins and losses ratios - accessible by team and tournament year. We are using a DataSet from Kaggle. Using Spring Batch the data is read & then uploaded to an internal hsqldb DB. The React front-end is then fetching the data from the spring app.
+Spring Boot, Spring Batch, React JS 
+                     
+                              
+EDUCATION	                                       
+
+Government College of Engineering and Ceramic Technology (MAKAUT, W.B.) – KOLKATA, INDIA                            June 2018
+Bachelor of Technology, Information Technology, DGPA - 7.78            
+          
+CERTIFICATIONS           
+
+AWS Certified Solutions Architect - Associate - Valid Till July 22, 2027
+AWS Certified Developer - Associate - Valid Till Sep 25, 2025
