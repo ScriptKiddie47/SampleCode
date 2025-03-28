@@ -35,3 +35,9 @@ else:
     print('You are a fool')
 
 
+
+
+# F Strings
+
+x = f'Hello {6+8}'
+print(x) # Hello 14

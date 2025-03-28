@@ -88,3 +88,46 @@ def foo7(*args,**kwargs):
     print(args,kwargs)
 
 foo7(1,2,3,4,5,one=0,two=1) # (1, 2, 3, 4, 5) {'one': 0, 'two': 1}
+
+
+f_name = 'Tim'
+
+def foo8():
+    f_name = 'Nick'
+
+print(f_name) # Tim
+foo8()
+print(f_name) # Tim
+
+l_name = 'Buck'
+
+def foo9():
+    global l_name # Never Use it
+    l_name = 'Muck'
+
+print(l_name) # Buck
+foo9()
+print(l_name) # Muck
+
+# Lambda [ Anonymous Function ]
+
+x = lambda x: x+5 # Not the best way to use it
+print(x(2)) # 7
+
+x = lambda x,y: x+y # Not the best way to use it
+print(x(5,5)) # 10
+
+x = [1,2,4,5,6,6,7,21,312,321,312,5,432,643,4123,41,2312]
+mp = map(lambda i:i+2,x) # add 2 to every element in x
+print(list(mp)) # [3, 4, 6, 7, 8, 8, 9, 23, 314, 323, 314, 7, 434, 645, 4125, 43, 2314]
+
+
+x = [1,2,4,5,6,6,7,21,312,321,312,5,432,643,4123,41,2312]
+mp = filter(lambda i:i%2==0,x) # Function must return true/false
+print(list(mp)) # 2, 4, 6, 6, 312, 312, 432, 2312]
+
+x = [1,2,4,5,6,6,7,21,312,321,312,5,432,643,4123,41,2312]
+def foo10(i):
+    return i % 2==0;
+mp = filter(foo10,x) 
+print(list(mp)) # [2, 4, 6, 6, 312, 312, 432, 2312]
