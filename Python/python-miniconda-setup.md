@@ -102,3 +102,10 @@ $ conda info --envs
 base                   /home/syndicate/miniconda3
 demo-env               /home/syndicate/miniconda3/envs/demo-env
 ```
+
+### Conda Remove Environmnet
+
+```ps
+syndicate@syn-debian:~/Documents/CodeSource/python-projects/opencv-learner
+$ conda env remove --name demo-env
+```
