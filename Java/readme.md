@@ -1,13 +1,13 @@
 # Java Keynotes
 
-| Topic                                                                  | Speaker              | url                                                                           |
-|------------------------------------------------------------------------|----------------------|-------------------------------------------------------------------------------|
-| `Java Multithreading`                                                  | `Venkat Subramaniam` | [Youtube Link](https://www.youtube.com/watch?v=6EQcpkSgsR8&ab_channel=Devoxx) |
-| `From Web to Flux: Tackling the Challenges of Reactive Programming`    | `Victor Rentea`      | [Youtube Link](https://www.youtube.com/watch?v=wsgJU5S1rRY)                   |
-| `Performance oriented Spring Data JPA & Hibernate`                     | `Maciej Walkowiak`   | [Youtube Link](https://www.youtube.com/watch?v=exqfB1WaqIw&t=711s)            |
-| `Performance oriented Spring Data JPA & Hibernate by Maciej Walkowiak` | `Maciej Walkowiak`   | [YouTube Link](https://www.youtube.com/watch?v=L9ZOgX-3LTQ)                   |
-| `Java Optimizing Tutorial - Low Level`                                 | `Dev Lessons`        | [Youtube Link](https://www.youtube.com/watch?v=SNCXp5ilYaA)                   |
-
+| Topic                                                                   | Speaker              | url                                                                           |
+|-------------------------------------------------------------------------|----------------------|-------------------------------------------------------------------------------|
+| `Java Multithreading`                                                   | `Venkat Subramaniam` | [Youtube Link](https://www.youtube.com/watch?v=6EQcpkSgsR8&ab_channel=Devoxx) |
+| `From Web to Flux: Tackling the Challenges of Reactive Programming`     | `Victor Rentea`      | [Youtube Link](https://www.youtube.com/watch?v=wsgJU5S1rRY)                   |
+| `Performance oriented Spring Data JPA & Hibernate`                      | `Maciej Walkowiak`   | [Youtube Link](https://www.youtube.com/watch?v=exqfB1WaqIw&t=711s)            |
+| `Performance oriented Spring Data JPA & Hibernate by Maciej Walkowiak`  | `Maciej Walkowiak`   | [YouTube Link](https://www.youtube.com/watch?v=L9ZOgX-3LTQ)                   |
+| `Java Optimizing Tutorial - Low Level`                                  | `Dev Lessons`        | [Youtube Link](https://www.youtube.com/watch?v=SNCXp5ilYaA)                   |
+| `The Best of Java Shorts Show: 100 Snippets in 50 Minutes by Adam Bien` | `Adam Bien`          | [Youtube Link](https://www.youtube.com/watch?v=t03DOhiTPkc)                   |
 
 # Java Source Code Example 
 | Topic                  | Speaker          | Youtube URL                                                                   | Github Repo                                                   |
