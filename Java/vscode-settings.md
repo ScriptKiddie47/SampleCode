@@ -45,6 +45,7 @@ Create file `.prettierrc.json`
 }
 ```
 
-## PolaCode
+## Screenshots
 
-1. Great Screenshots
+1. CodeSnap
+2. Polacode
