@@ -19,18 +19,19 @@
 
 ## VSCODE BASICS
 
-```
+```json
 {
-  "workbench.colorTheme": "Visual Studio Light",
-  "editor.fontFamily": "'JetBrains Mono', monospace",
-  "terminal.integrated.cursorStyle": "line",
-  "terminal.integrated.fontFamily": "'JetBrains Mono', monospace",
-  "editor.fontLigatures": true,
-  "editor.minimap.enabled": false,
-  "workbench.sideBar.location": "right",
-  "workbench.editor.wrapTabs": true,
-  "editor.cursorSmoothCaretAnimation": "on"
+    "workbench.colorTheme": "Visual Studio Light",
+    "editor.fontFamily": "'JetBrains Mono', monospace",
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.fontFamily": "'JetBrains Mono', monospace",
+    "editor.fontLigatures": true,
+    "editor.minimap.enabled": false,
+    "workbench.sideBar.location": "right",
+    "workbench.editor.wrapTabs": true,
+    "editor.cursorSmoothCaretAnimation": "on"
 }
+
 
 ```
 
