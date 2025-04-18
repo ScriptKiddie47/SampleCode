@@ -26,8 +26,10 @@ module.exports = customLogger;
 ### Logger Implementation
 
 ```js
+const path = require('path');
 const customLogger = require("./logger-factory");
-const logger = customLogger("app.js");
+const scriptName = path.basename(__filename);
+const logger = customLogger(scriptName);
 
 logger.info("Hello There");
 logger.info("Hello There");
