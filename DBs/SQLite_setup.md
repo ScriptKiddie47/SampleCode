@@ -4,7 +4,7 @@ Eveything is a File.
 
 ## Direct Installation as SQLite is Very Small in Size
 
-```
+```ps
 syndicate@syndicate-H610M-H-DDR4 ~ $ sudo apt install sqlite3
 syndicate@syndicate-H610M-H-DDR4 ~ $ sqlite3 --version
 3.37.2 2022-01-06 13:25:41 872ba256cbf61d9290b571c0e6d82a20c224ca3ad82971edc46b29818d5dalt1
@@ -12,7 +12,7 @@ syndicate@syndicate-H610M-H-DDR4 ~ $ sqlite3 --version
 
 ### Connect and Quit out of SQLite CLI
 
-```
+```ps
 syndicate@syndicate-H610M-H-DDR4 ~ $ sqlite3
 SQLite version 3.37.2 2022-01-06 13:25:41
 Enter ".help" for usage hints.
@@ -26,7 +26,7 @@ syndicate@syndicate-H610M-H-DDR4 ~ $
 ### Create and Check DB location
 
 
-```
+```ps
 syndicate@syndicate-H610M-H-DDR4 ~/Documents/Tools/SQLite3DBs $ sqlite3 testsqlite3db.db
 SQLite version 3.37.2 2022-01-06 13:25:41
 Enter ".help" for usage hints.
@@ -38,7 +38,7 @@ syndicate@syndicate-H610M-H-DDR4 ~/Documents/Tools/SQLite3DBs $
 
 ### Connect back to the existing database
 
-```
+```ps
 SQLite version 3.37.2 2022-01-06 13:25:41
 Enter ".help" for usage hints.
 Connected to a transient in-memory database.
@@ -52,7 +52,7 @@ sqlite>
 
 ### Make the response Good looking
 
-```
+```ps
 sqlite> .mode column
 sqlite> select * from models;
 model_id  model_name      model_base_price  brand_id
@@ -84,7 +84,7 @@ sqlite>
 
 ### Table Describe - pragma
 
-```
+```ps
 sqlite> pragma table_info(models);
 cid  name              type         notnull  dflt_value  pk
 ---  ----------------  -----------  -------  ----------  --
@@ -93,4 +93,17 @@ cid  name              type         notnull  dflt_value  pk
 2    model_base_price  INTEGER      1                    0 
 3    brand_id          INTEGER      1                    0 
 sqlite> 
+```
+
+### Show All Tables
+
+```ps
+$ sqlite3 Car_Database.db
+SQLite version 3.40.1 2022-12-28 14:03:47
+sqlite> .database
+main: /home/syndicate/Documents/CodeSource/Sqlite3DBs/Car_Database.db r/w
+sqlite> .tables
+Brands              Car_Vins            Dealer_Brand        Models            
+Car_Options         Customer_Ownership  Dealers           
+Car_Parts           Customers           Manufacture_Plant 
 ```
