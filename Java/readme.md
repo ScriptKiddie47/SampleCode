@@ -1,4 +1,3 @@
-# Java Keynotes
 | Topic                                                                   | Speaker              | url                                                                           |
 |-------------------------------------------------------------------------|----------------------|-------------------------------------------------------------------------------|
 | `Java Multithreading`                                                   | `Venkat Subramaniam` | [Youtube Link](https://www.youtube.com/watch?v=6EQcpkSgsR8&ab_channel=Devoxx) |
@@ -8,6 +7,8 @@
 | `Java Optimizing Tutorial - Low Level`                                  | `Dev Lessons`        | [Youtube Link](https://www.youtube.com/watch?v=SNCXp5ilYaA)                   |
 | `The Best of Java Shorts Show: 100 Snippets in 50 Minutes by Adam Bien` | `Adam Bien`          | [Youtube Link](https://www.youtube.com/watch?v=t03DOhiTPkc)                   |
 | `Exception Handling in Functional and Reactive Programming`             | `Venkat Subramaniam` | [Youtube Link](https://www.youtube.com/watch?v=1qdANLdLddk)                   |
+| `Continuations: The magic behind virtual threads`                       | `Balkrishna Rawool`  | [Youtube Link](https://www.youtube.com/watch?v=HQsYsUac51g)                   |
+
 
 # Java Source Code Example 
 | Topic                  | Speaker          | Youtube URL                                                                   | Github Repo                                                   |
