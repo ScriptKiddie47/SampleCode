@@ -39,30 +39,38 @@ public class JsmtdApplication {
 
 ## Spring Profiles
 
-```yaml
-spring:
-  profiles:
-    active: 'dev'
+1. dev & test profiles
 
----
-spring:
-  config:
-    activate:
-      on-profile: dev
+	```yaml
+	spring:
+	  profiles:
+	    active: 'dev'
+	
+	---
+	spring:
+	  config:
+	    activate:
+	      on-profile: dev
+	
+	environment: 'dev-1'
+	billing-info-service-url: 'http://127.0.0.1:3001/v2/billing-info'
+	---
+	spring:
+	  config:
+	    activate:
+	      on-profile: test
+	 
+	environment: 'test-1'
+	billing-info-service-url: 'http://127.0.0.1:3001/v1/billing-info'
+	---
+	```
 
-environment: 'dev-1'
-billing-info-service-url: 'http://127.0.0.1:3001/v2/billing-info'
----
-spring:
-  config:
-    activate:
-      on-profile: test
- 
-environment: 'test-1'
-billing-info-service-url: 'http://127.0.0.1:3001/v1/billing-info'
----
+1. Spring Invoke
 
-```
+	```java
+	@Value("${billing-info-service-url}")
+	private String billingInfoServiceUrl;
+	```
 
 ## Bootsrap & Jquery in Spring Boot
 
