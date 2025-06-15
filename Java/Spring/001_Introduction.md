@@ -11,14 +11,17 @@
 
 ## 1. Application Properties
 
-1. Enable Spring Logging Properties
+1. Enable Spring Logging Properties & app logging properties.
 
-```yaml
-logging:
-  level:
-    org:
-      springframework: debug
-```
+	```yaml
+	logging:
+	  level:
+	    org:
+	      springframework: INFO
+	    com:
+	      scripter:
+	        carorder: DEBUG
+	```
 
 ## AutoConfiguratio in Spring
 
