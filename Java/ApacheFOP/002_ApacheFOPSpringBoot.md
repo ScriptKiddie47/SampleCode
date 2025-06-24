@@ -599,3 +599,21 @@
 
 1. API GET Call : `http://localhost:8080/order-report`
 1. Use Browser or Postman
+
+
+```java
+public static File convertClassPathResourceToFileV2(String classpathResource) throws IOException {
+        // Load InputStream from classpath
+        try (InputStream inputStream = new ClassPathResource(classpathResource).getInputStream()) {
+
+            // Create temp file
+            Path tempPath = Files.createTempFile("temp-", ".tmp");
+            tempPath.toFile().deleteOnExit(); // Optional
+
+            // Copy input stream to temp file
+            Files.copy(inputStream, tempPath, StandardCopyOption.REPLACE_EXISTING);
+
+            return tempPath.toFile();
+        }
+    }
+```
