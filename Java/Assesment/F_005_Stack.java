@@ -20,7 +20,7 @@ Sample Output
 	true
 	false
 	true
-/*
+*/
 
 
 
