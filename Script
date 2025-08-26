@@ -1,0 +1,115 @@
+
+I am recording a software Demo. Help me write the script for the below
+
+Hello and welcome to TravBlitz – your AI-powered Chatbot!
+Today, I’ll be giving you a quick demo of what makes TravBlitz smart, smooth, and powerful.
+
+✅First, TravBlitz is built with a React frontend, offering a clean and responsive user interface.
+✅ On the backend, we run Python, ensuring flexibility, performance, and easy integration with AI services.
+✅ TravBlitz allows easy switching between capabilities.Defect Assistant , Rules & TrvPas Assistant.
+✅ And at the heart of it all, TravBlitz is powered by Claude Sonnet 4, running on Amazon Bedrock  and making it compliant with approved Travelers AI guidelines.
+
+=====================================================================================================
+
+The Defect Assistant offers a unique capability—it can seamlessly interface with various subsystems such as JIRA, ServiceNow, SharePoint, and more. For the purpose of today’s demo, we have full integrations enabled with JIRA and ServiceNow.
+Now, let’s walk through a common real-world scenario.
+Imagine you’re a developer on call, and you're suddenly being bombarded with alerts. Multiple messages are flagging that the ECAM service is missing essential policy details. Sounds familiar, right?
+Instead of jumping across different tools and dashboards, let’s bring all that context into one place and use the Defect Assistant App to streamline the investigation.
+For the purpose of the demo I have already saved some prompts. Let look at one:
+
+Prompt : 'I am having an issue where our ECAM service is missing essential policy details.So what can be the root cause?'
+
+The TravBlitz app scans both open and closed bugs and incidents in JIRA and ServiceNow, gathering all relevant data. This information is then fed as context to the LLM, which processes it intelligently and generates a concise output highlighting critical points and key insights.
+
+✅ Source Tag : Which highlights the Source System
+✅ Metadata : One Click Navigation to JIRA
+
+Lets now look at one more scenario 
+You are seeing a lot of 500 Internal Errors being reported. 
+Prompt : I am seeing '500 Internal Server Errors' in our application'
+
+✅ Source Tag
+✅ Metadata
+
+
+Conclusion : 
+Just think about how much time this saves. Instead of manually debugging and trying to identify patterns across thousands of RCA Documents, TravBlitz Defect Assistant does the heavy lifting for you, leaving you with more time to focus on writing quality code and improving features.
+So there you have it! With TravBlitz Defect Assistant, defect analysis is faster, smarter, and way less stressful. Whether you're tackling a single issue or managing multiple defects, you can count on TravBlitz to streamline the process and save you time.
+Thanks for watching this demo ! 
+
+
+======================================================================================================
+
+TravBlitz : Rules Assistant 
+Today, we’re going to show you how this powerful tool can save you time and effort when dealing with rule violations, particularly in the SCBP System.
+Imagine you're new to the SCBP RQI system, and you're trying to quote an auto policy. You’ve filled out most of the details, and when you try to generate the premium, you get blocked by an "Edit Rule" or a "Decline Rule."
+Now, if you've faced this issue before, you might know how to resolve it by tweaking policy fields. Alternatively, you could reach out to a colleague who is a developer for help. But here's the catch — this typically takes a significant amount of time. Not only does it slow you down, but it also impacts your deadlines of your colleague as well.
+This is where the TravBlitz: Rules Assistant comes in.
+Lets again call on to the power of copy paste : 
+
+Prompt : Why is the rule E101 triggered on my policy 9881923218?
+
+With TravBlitz, you don’t need to waste time waiting for a developer’s intervention. Here’s how it works:
+As soon as you encounter a rule violation, the Rules Assistant instantly identifies the reason behind the block. You’ll get a detailed explanation right away, so you know exactly why the system is preventing the premium generation.
+But we don’t stop there! TravBlitz goes a step further. It doesn’t just tell you what’s wrong; it also recommends the next course of action to bypass the rule and move forward with the policy issuance.
+Whether you need to adjust a field or make another small tweak, TravBlitz provides clear, actionable guidance, so you can proceed without delay.
+In summary, the TravBlitz: Rules Assistant empowers you to handle rule violations quickly and efficiently — without needing developer support, and without losing precious time.
+
+
+
+TravBlitz doesn’t just help you with rule violations; it also serves as an extensive rule knowledge base.
+If you’re ever unsure about the purpose or details of any rule, you can simply ask the tool to explain it to you. Whether it's a complex rule or something you’ve never encountered before, TravBlitz provides clear, easy-to-understand explanations.
+
+Prompt : Tell me about the rule E101?
+
+It’s like having a knowledgeable assistant right at your fingertips, ready to clarify any rule in the system whenever you need it.
+
+=================================================================================================
+
+TravBlitz : TrvPas Assistant
+
+Hello and welcome! In this segment, we’ll be showcasing the final capability of TravBlitz — the TrvPas Assistant.
+This powerful feature demonstrates how Large Language Models (LLMs) can seamlessly understand and work with proprietary configurations, providing instant solutions to complex UI-related issues.
+Let’s dive into the scenario. Imagine you’re working with the SCBP RQI UI, which is a proprietary software, known as TrvPas. Since it’s proprietary, the system comes with unique challenges — especially when it comes to understanding its intricate configurations.
+Now, the TrvPas UI System is worked on by a group of engineers called Configurators, who are the experts in navigating its complex setup. But what happens when you encounter an issue, like a UI question not being visible?
+In these cases, you’re forced to rely heavily on these Configurators. They’re the only ones who can identify what went wrong, which creates a hard dependency. This dependency can be difficult to overcome, causing delays and bottlenecks in your workflow.
+Now, this is where the TravBlitz: TrvPas Assistant comes in to save the day.
+
+Prompt : What are the condition of the question appearing on the screen.'Does this policy include vehicles of other states?' for my policy 9881923218?
+
+With TrvPas Assistant, we significantly reduce the dependency on Configurators. Here’s how it works:
+When you face a UI issue — like when a question is not visible on the page — TrvPas instantly brings together configuration and policy data into its context. This allows it to analyze the underlying issue in real time.
+Once the problem is identified, TrvPas Assistant doesn’t just give you technical jargon. Instead, it informs the end user in simple, easy-to-understand language why the question isn’t visible on the webpage.
+For example, it might explain that certain fields are hidden due to specific configurations or that a policy condition hasn’t been met. This gives you immediate clarity, without needing to wait for a Configurator.
+By integrating TrvPas Assistant, we reduce the need to constantly rely on Configurators, speeding up your workflow and improving overall efficiency. What once required deep technical knowledge is now simplified into actionable insights you can understand and act on immediately.
+
+==============================================================
+
+[Scene: Developer (you) speaking to the camera or screen share of the app]
+👩‍💻 Narrator/You:
+"Hi everyone! Today I’m excited to demo a React-based tool we've built that streamlines Quality Engineering for Auto Insurance policy testing."
+[Scene: Showing the app UI – clean form with dropdowns and input fields]
+🧪 Narrator:
+"As you know, QEs often spend significant time manually creating Excel sheets to simulate test cases for Auto Insurance policies. These spreadsheets include various parameters such as coverage types, vehicle info, driver details, and more. It’s repetitive, error-prone, and time-consuming."
+[Scene: Filling in the form in real-time]
+🧰 Narrator:
+"This tool simplifies that process. We’ve created a smart form interface – everything is driven by dropdowns or input fields. For example, when I choose a state like California, the tool automatically adjusts the coverage options and limits based on state regulations. No need to remember compliance rules – the app takes care of that."
+[Zoom in on field updates dynamically responding to other fields]
+🧠 Narrator:
+"The real power of this app is its intelligence. It’s not just a form – it’s context-aware. If I choose a certain vehicle type, the form auto-adjusts the available coverage options. If I change the driver age or accident history, applicable discounts or surcharges update automatically."
+[Scene: Clicking the 'Generate Excel' button]
+📄 Narrator:
+"Once I’ve entered the test data, all I need to do is click Generate Excel. The app instantly downloads a pre-formatted Excel template populated with all the relevant test data."
+[Show the generated Excel sheet opening up – nicely formatted with headers]
+📊 Narrator:
+"This sheet matches the structure our QE teams use – headers, standardized formats, and test-ready data. What used to take 15–30 minutes per test case now takes under a minute."
+[Scene: Split screen – Manual effort vs. Automation]
+📈 Narrator:
+"This automation saves hours per sprint. It reduces human error and ensures consistency across test cases. Plus, it’s scalable – we can easily plug in new business rules or add new policy features as the product evolves."
+[Scene: Back to the app or summary slide]
+🎯 Narrator:
+"In summary, our Smart Excel Generator is more than just a time-saver – it’s an intelligent assistant for QE teams. By bridging business logic with automated test case creation, we’ve empowered Quality Engineering to focus on what really matters: high-quality, high-coverage testing."
+[Final Slide: "Thank You – Questions?"]
+🙌 Narrator:
+
+"Thanks for watching! I’d love to hear your feedback or answer any questions."
