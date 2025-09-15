@@ -38,7 +38,7 @@
 
 1. The name looks odd because it is a automatically assinged volume.
 1. If we shut down the container. The volume disappears as well. So it exists as long our container exists.
-### Names Volumes
+### Named Volumes
 
 1. We cannot create named volumes inside of a docker file. So remove the VOLUME line from Dockerfile.
 1. Named volumes aren't deleted when container removed.
@@ -71,12 +71,11 @@
 
 1. Also makes sure docker has access to the file system where our code resides using Docker Desktop File Sharing
 
-```ps
-syndicate@pop-os:~/Documents/CodeSource/node-js-projects/data-volumes-01-starting-setup
-$ docker run -p 3000:80 -d --rm -v "feedback:/app/feedback" -v "/home/syndicate/Documents/CodeSource/node-js-projects/data-volumes-01-starting-setup:/app" -v "/app/node_modules" syndicate47/synimage:dv-01
-0a87b381def3fffdd52bcb0cb052ce597697d8c648d2bf7702048c1a7d0cb1c3
-
-```
+    ```ps
+    syndicate@pop-os:~/Documents/CodeSource/node-js-projects/data-volumes-01-starting-setup
+    $ docker run -p 3000:80 -d --rm -v "feedback:/app/feedback" -v "/home/syndicate/Documents/CodeSource/node-js-projects/data-volumes-01-starting-setup:/app" -v "/app/node_modules" syndicate47/synimage:dv-01
+    0a87b381def3fffdd52bcb0cb052ce597697d8c648d2bf7702048c1a7d0cb1c3
+    ```
 1. Note -> `-v "/home/syndicate/Documents/CodeSource/node-js-projects/data-volumes-01-starting-setup:/app"`
 
 1. The usage of Absolute path here defines the Bind mount connected to app folder of container.
