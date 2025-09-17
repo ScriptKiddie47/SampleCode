@@ -1,0 +1,13 @@
+# Additional Stuff for MicroK8 Starts
+# https://microk8s.io/docs/addon-metallb
+
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: custom-addresspool
+  namespace: metallb-system
+spec: 
+  addresses:
+  - 192.168.1.1-192.168.1.100
+
+# Additional Stuff for MicroK8 Ends
