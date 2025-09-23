@@ -54,3 +54,53 @@ data-store-env     1      46s
 ```
 
 1. The above code pull the value using the key and config map name.
+
+1. Full Code
+
+
+```yaml
+# Config Map
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: data-store-env
+data:
+  folder: "story"
+
+---
+# Deployment
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: story-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: story-app
+  template:
+    metadata:
+      labels:
+        app: story-app
+    spec:
+      containers:
+        - name: story-app-container
+          image: syndicate47/synimage:stories-app-1.0.0
+          imagePullPolicy: Always
+          env:
+            - name: STORY_FOLDER
+              valueFrom:
+                configMapKeyRef:
+                  name: data-store-env
+                  key: folder
+          volumeMounts:
+            - mountPath: /app/story
+              name: story-volume
+      volumes:
+        - name: story-volume
+          persistentVolumeClaim:
+            claimName: host-pvc
+```
+
