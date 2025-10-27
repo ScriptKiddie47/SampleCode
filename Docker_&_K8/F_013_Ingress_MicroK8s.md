@@ -63,3 +63,5 @@ spec:
 
 ---
 ```
+
+Note: The host must be blank for Ingress
