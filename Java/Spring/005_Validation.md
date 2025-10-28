@@ -90,3 +90,102 @@ Connection: close
 
 {"timestamp":"2023-12-18","message":"[Birth Date should be in the past, Name should have atleast 2 characters]","details":"uri=/users"}
 ```
+
+# Validation with @RestControllerAdvice
+
+1. Controller
+
+	```java
+	@GetMapping(path = "/validate",produces = MediaType.TEXT_PLAIN_VALUE)
+	public ResponseEntity<String> validate(
+		@RequestParam(value = "productCd") @NotEmpty(message = "Product Code must not be empty") String prdCd,
+		@RequestParam(value = "ruleName") @NotEmpty(message = "Rule Name cannot be empty") String rName
+		
+		){
+		LOG.info("prdCd : {}",prdCd);
+		return ResponseEntity.ok("validated");
+	}
+	```
+
+1. RestControllerAdvice Class
+
+	```java
+	package com.scripter.spring.hello.controller;
+
+	import java.util.LinkedHashMap;
+	import java.util.List;
+	import java.util.Map;
+
+	import org.slf4j.Logger;
+	import org.slf4j.LoggerFactory;
+	import org.springframework.http.HttpStatus;
+	import org.springframework.http.ResponseEntity;
+	import org.springframework.web.bind.MissingServletRequestParameterException;
+	import org.springframework.web.bind.annotation.ExceptionHandler;
+	import org.springframework.web.bind.annotation.ResponseStatus;
+	import org.springframework.web.bind.annotation.RestControllerAdvice;
+	import org.springframework.web.method.annotation.HandlerMethodValidationException;
+
+
+	@RestControllerAdvice
+	public class HelloExceptionController {
+
+		private static final Logger LOG = LoggerFactory.getLogger(HelloExceptionController.class);
+
+		@ResponseStatus(code = HttpStatus.BAD_REQUEST)
+		@ExceptionHandler(exception = MissingServletRequestParameterException.class)
+		public ResponseEntity<Map<String, Object>> handleMissingRequestParam(MissingServletRequestParameterException ex) {
+
+			LOG.error("Missing request parameter: {}", ex.getParameterName());
+
+			Map<String, Object> error = new LinkedHashMap<>();
+			error.put("status", HttpStatus.BAD_REQUEST.value());
+			error.put("error", "Missing Request Parameter");
+
+			Map<String, String> details = new LinkedHashMap<>();
+			details.put("parameter", ex.getParameterName());
+			details.put("expectedType", ex.getParameterType());
+			details.put("message", String.format("Required parameter '%s' is missing", ex.getParameterName()));
+
+			error.put("details", details);
+
+			return ResponseEntity.badRequest().body(error);
+		}
+
+		@ExceptionHandler(HandlerMethodValidationException.class)
+		public ResponseEntity<Map<String, Object>> handleValidationException(HandlerMethodValidationException ex) {
+
+			// Log it for debugging
+			LOG.error("Validation failed: {}", ex.getParameterValidationResults());
+
+			// Build a readable error response
+			List<Map<String, String>> errors = ex.getParameterValidationResults().stream()
+					.flatMap(result -> result.getResolvableErrors().stream())
+					.map(error -> {
+						Map<String, String> err = new LinkedHashMap<>();
+						err.put("param", error.getCodes() != null ? error.getCodes()[0] : "unknown");
+						err.put("message", error.getDefaultMessage());
+						return err;
+					})
+					.toList();
+
+			Map<String, Object> body = new LinkedHashMap<>();
+			body.put("status", HttpStatus.BAD_REQUEST.value());
+			body.put("error", "Validation failed");
+			body.put("details", errors);
+
+			return ResponseEntity.badRequest().body(body);
+		}
+	}
+	```
+1. Curl
+
+	```ps
+	$ curl --request GET \
+	--url http://localhost:8080/validate
+	{"status":400,"error":"Missing Request Parameter","details":{"parameter":"productCd","expectedType":"String","message":"Required parameter 'productCd' is missing"}}
+
+	$ curl --request GET \
+	--url 'http://localhost:8080/validate?productCd=&ruleName='
+	{"status":400,"error":"Validation failed","details":[{"param":"NotEmpty.helloController#validate.prdCd","message":"Product Code must not be empty"},{"param":"NotEmpty.helloController#validate.rName","message":"Rule Name cannot be empty"}]}
+	```
