@@ -47,7 +47,7 @@
 1. Creates Volume -> `compose-01-starting-setup_data`. Its prefixed by project folder name + `data`.
 1. Then starts listening to service. Mongo in our case.
 1. Pressing `Ctrl+C` stops the container.
-1. Start in detached mode.
+1. Start in detached mode : `docker compose up -d`
 
     ```ps
     syndicate@pop-os:~/Documents/CodeSource/node-js-projects/compose-01-starting-setup

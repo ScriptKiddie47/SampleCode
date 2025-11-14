@@ -27,3 +27,17 @@
     System.out.println(l); // b -> Increased due to arithmetic operations
     ```
 1. Arithmetic operations work on character codes
+1. `Math.round()` always round to the whole number.
+1. But what if I want it be upto say 2 decimal places 
+
+    ```java
+    double c = (double)11/3;
+    System.out.println(c); // 3.6666666666666665
+    System.out.println(Math.round(c)); // 4
+    System.out.println((double)Math.round(c*100)/100.0); // 3.67
+    ```
+
+## Binary Number Representation in Java
+
+1. All java numerics are signed ( ie: +ve & -ve values)
+1. 
