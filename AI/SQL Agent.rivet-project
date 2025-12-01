@@ -1,0 +1,217 @@
+version: 4
+data:
+  attachedData:
+    trivet:
+      testSuites: []
+      version: 1
+  graphs:
+    TPSSQlLlGldduOy3orN6-:
+      metadata:
+        description: ""
+        id: TPSSQlLlGldduOy3orN6-
+        name: SQLAgentGraph1
+      nodes:
+        '[GFDM7FD4t1lDwktvMF6eH]:code "Code"':
+          data:
+            allowConsole: false
+            allowFetch: false
+            allowProcess: false
+            allowRequire: false
+            allowRivet: false
+            code: >-
+              
+              // This is a code node, you can write and JS in here and it will be executed.
+
+              // Inputs are accessible via an object `inputs` and data is typed (i.e. inputs.foo.type, inputs.foo.value)
+
+              // Return an object with named outputs that match the output names specified in the node's config.
+
+              // Output values must by typed as well (e.g. { bar: { type: 'string', value: 'bar' } }
+
+
+               const customerTable = `
+               
+               CREATE TABLE customers (
+                  customer_id      INT PRIMARY KEY,
+                  first_name       VARCHAR(50)  NOT NULL,
+                  last_name        VARCHAR(50)  NOT NULL,
+                  date_of_birth    DATE,
+                  email            VARCHAR(100),
+                  phone_number     VARCHAR(20),
+                  created_at       TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+              );
+
+              `
+
+
+              const accountTable = `
+
+              -- 2) Accounts table (connected to customers)
+
+              CREATE TABLE accounts (
+                  account_id       INT PRIMARY KEY,
+                  customer_id      INT NOT NULL,
+                  account_type     VARCHAR(20) NOT NULL,  -- e.g. 'SAVINGS', 'CURRENT', 'LOAN'
+                  balance          DECIMAL(15,2) DEFAULT 0.00,
+                  currency         VARCHAR(3)   DEFAULT 'INR',
+                  opened_at        TIMESTAMP    DEFAULT CURRENT_TIMESTAMP,
+                  status           VARCHAR(20)  DEFAULT 'ACTIVE',
+                  
+                  CONSTRAINT fk_accounts_customer
+                      FOREIGN KEY (customer_id)
+                      REFERENCES customers(customer_id)
+              );
+
+              `
+
+              // console.log(inputs.input1.value[0].arguments.tablename)
+
+              const tablename = inputs.input1.value[0].arguments.tablename
+
+
+              if(tablename == 'customers'){
+                return {
+                  output1:{
+                    type: 'string',
+                    value: customerTable 
+                  }
+                };
+              }
+
+              if (tablename == 'accounts'){
+                 return {
+                  output1:{
+                    type: 'string',
+                    value: accountTable 
+                  }
+                };
+              }
+
+
+              return {
+                output1: {
+                  type: inputs.input1.type,
+                  value: "Somethjihng"
+                }
+              };
+            inputNames: input1
+            outputNames: output1
+          outgoingConnections:
+            - output1->"Chat" wdqmptIC2klejFP9Zdko-/systemPrompt
+          visualData: 1297.3736264905667/-61.12794804204985/230/49//
+        '[GdWcB3HG6TvErHS75Mw4k]:gptFunction "Schema Finder Tool"':
+          data:
+            code: ""
+            description: |-
+              Return the schema of a table based on Table Name.
+              We are currently 2 tables
+              1. customers
+              2. accounts
+            name: SchemaFinder
+            schema: |-
+              {
+                "type": "object",
+                "properties": {
+                  "tablename": {
+                    "type": "string",
+                    "description": "The name of the Table"
+                  }
+                },
+                "required": ["tablename"]
+              }
+            text: ""
+            useNameInput: false
+          outgoingConnections:
+            - function->"Chat" qK4SIyRNlgYy45_D2Cp8Y/functions
+          visualData: 548.8630876738931/360.38923012750325/280/36//
+        '[qK4SIyRNlgYy45_D2Cp8Y]:chat "Chat"':
+          data:
+            additionalParameters: []
+            cache: false
+            code: ""
+            enableFunctionUse: true
+            headers: []
+            maxTokens: 1024
+            modalitiesIncludeAudio: false
+            modalitiesIncludeText: false
+            model: gpt-5-mini
+            outputUsage: false
+            parallelFunctionCalling: true
+            reasoningEffort: ""
+            stop: ""
+            temperature: 0.5
+            toolChoice: auto
+            top_p: 1
+            useAdditionalParametersInput: false
+            useAsGraphPartialOutput: true
+            useFrequencyPenaltyInput: false
+            useMaxTokensInput: false
+            useModelInput: false
+            usePredictedOutput: false
+            usePresencePenaltyInput: false
+            useReasoningEffortInput: false
+            useServerTokenCalculation: true
+            useStop: false
+            useStopInput: false
+            useTemperatureInput: false
+            useToolChoiceInput: false
+            useTopP: false
+            useTopPInput: false
+            useUseTopPInput: false
+            useUserInput: false
+          outgoingConnections:
+            - function-calls->"Code" GFDM7FD4t1lDwktvMF6eH/input1
+          visualData: 952.4996493726466/-16.56264434348443/230/51//
+        '[wdqmptIC2klejFP9Zdko-]:chat "Chat"':
+          data:
+            additionalParameters: []
+            cache: false
+            enableFunctionUse: false
+            headers: []
+            maxTokens: 1024
+            modalitiesIncludeAudio: false
+            modalitiesIncludeText: false
+            model: gpt-5-mini
+            outputUsage: false
+            parallelFunctionCalling: true
+            reasoningEffort: ""
+            stop: ""
+            temperature: 0.5
+            top_p: 1
+            useAdditionalParametersInput: false
+            useAsGraphPartialOutput: true
+            useFrequencyPenaltyInput: false
+            useMaxTokensInput: false
+            useModelInput: false
+            usePredictedOutput: false
+            usePresencePenaltyInput: false
+            useReasoningEffortInput: false
+            useServerTokenCalculation: true
+            useStop: false
+            useStopInput: false
+            useTemperatureInput: false
+            useTopP: false
+            useTopPInput: false
+            useUseTopPInput: false
+            useUserInput: false
+          isConditional: false
+          visualData: 1734.3213265641207/224.39487129971434/230/58//
+        '[zZNhVyWqBiwq8uDuTplT0]:text "SQL Query"':
+          data:
+            normalizeLineEndings: true
+            text: >-
+              Generate a query to Count the number of customers whose first name
+              starts with 'A'
+
+              You must utilize the tools available at your disposal
+          isConditional: false
+          outgoingConnections:
+            - output->"Chat" qK4SIyRNlgYy45_D2Cp8Y/prompt
+            - output->"Chat" wdqmptIC2klejFP9Zdko-/prompt
+          visualData: 482.15338735632275/52.638382464001985/330/53//
+  metadata:
+    description: ""
+    id: emhNn_Wyt__cHTe3Ab9Wr
+    title: SQL Agent
+  plugins: []
+  references: []
