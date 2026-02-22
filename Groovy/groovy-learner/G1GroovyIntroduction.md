@@ -2,10 +2,10 @@
 
 1. Download Binary & add it to path
 
-```ps
-$ groovy -v
-Groovy Version: 4.0.12 JVM: 17.0.0.1 Vendor: Oracle Corporation OS: Linux
-```
+    ```ps
+    $ groovy -v
+    Groovy Version: 4.0.12 JVM: 17.0.0.1 Vendor: Oracle Corporation OS: Linux
+    ```
 
 ## Hello World
 
@@ -29,37 +29,37 @@ Hello
 
 1. Dynamically Typed
 
-```groovy
-class F1GroovyHello {
-    static void main(String[] args) {
-        println('Hello');
-        def age = "Dog";
-        println(age); // Dog
-        age = 20
-        println(age); // 20
+    ```groovy
+    class F1GroovyHello {
+        static void main(String[] args) {
+            println('Hello');
+            def age = "Dog";
+            println(age); // Dog
+            age = 20
+            println(age); // 20
+        }
     }
-}
-```
+    ```
 ## Math Ops
 
 1. Order of Operations : BOADMAS
 1. Grooyv is very accurate with decimal calculations
 
-```groovy
-println(5+4); //9
-println(5-4); //1 
-println(5*4); //20
-println(5.intdiv(4)); //1
-println(5%4); //1
+    ```groovy
+    println(5+4); //9
+    println(5-4); //1 
+    println(5*4); //20
+    println(5.intdiv(4)); //1
+    println(5%4); //1
 
-println(5.2.plus(4.4)); // 9.6 
-println(5.2.minus(4.4)); // 0.8
-println(5.multiply(4.4)); // 22.0
-println(5 / 4); // 1.25
+    println(5.2.plus(4.4)); // 9.6 
+    println(5.2.minus(4.4)); // 0.8
+    println(5.multiply(4.4)); // 22.0
+    println(5 / 4); // 1.25
 
-println("Biggest Integer : " + Integer.MAX_VALUE); // Biggest Integer : 2147483647
-println(Math.abs(-2.45)); // 2.45
-```
+    println("Biggest Integer : " + Integer.MAX_VALUE); // Biggest Integer : 2147483647
+    println(Math.abs(-2.45)); // 2.45
+    ```
 
 ## Strings
 
@@ -117,12 +117,12 @@ println(Math.abs(-2.45)); // 2.45
 1. More String functions
 
 
-```groovy
-def randString = "Random";
-println("A ${randString} string");
-printf("A %s string \n",randString);
-printf("%-10s %d %.2f %10s string \n",['Stuff',10,1.234,'Random']); // Stuff      10 1.23     Random string
-// %-10s puts padding on the right side
-// %10s puts padding on the left side
-```
- 
+    ```groovy
+    def randString = "Random";
+    println("A ${randString} string");
+    printf("A %s string \n",randString);
+    printf("%-10s %d %.2f %10s string \n",['Stuff',10,1.234,'Random']); // Stuff      10 1.23     Random string
+    // %-10s puts padding on the right side
+    // %10s puts padding on the left side
+    ```
+    
