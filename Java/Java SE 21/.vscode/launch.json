@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "C_Heap",
+            "request": "launch",
+            "mainClass": "C_Heap",
+            "projectName": "Java SE 21_3737bd4"
+        },
+        {
+            "type": "java",
+            "name": "SingleScript",
+            "request": "launch",
+            "mainClass": "SingleScript",
+            "projectName": "Java SE 21_3737bd4",
+            "vmArgs": "-ea"
+        },
+        {
+            "type": "java",
+            "name": "Launch SingleScript",
+            "request": "launch",
+            "mainClass": "Main",
+            "vmArgs": "-ea"
+        }
+    ]
+}
