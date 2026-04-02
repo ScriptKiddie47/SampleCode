@@ -83,6 +83,7 @@ class SingleScript {
 
 ## BitWise Operator
 
+```java
 public class SingleScript {
     public static void main(String[] args) {
         int x = 1, y = 1, z = 0;
@@ -94,6 +95,7 @@ public class SingleScript {
         System.out.println(z);
     }
 }
+```
 
 Output : 3
 The trap: if it were `||` instead
