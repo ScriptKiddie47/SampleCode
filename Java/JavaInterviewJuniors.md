@@ -81,6 +81,24 @@ class SingleScript {
         at SingleScript.main(SingleScript.java:8)
 ```
 
+## BitWise Operator
+
+public class SingleScript {
+    public static void main(String[] args) {
+        int x = 1, y = 1, z = 0;
+        if (x == y | x < ++y) {
+            z = x + y;
+        } else {
+            z = 1;
+        }
+        System.out.println(z);
+    }
+}
+
+Output : 3
+The trap: if it were `||` instead
+With `||`, once `x == y` evaluates to `true`, the right side is skipped entirely — `++y` never executes, `y` stays `1`, and `z = 1 + 1 = 2`.
+
 # Quick Questions
 
 ### Core Java Basics

@@ -39,14 +39,6 @@
 | Stack: Sort Stack   | Stack        | Use an additonal stack & a temp variable. Pop from stack & store in temp and push to additional stack if temp is less than additional stack peek. Else pop from additional stack & store in stack. Be carefull about the second loop. O(n^2) |                                                  |
 | Queue using Stacks  | Stack        | Tricky. Copy data to an additonal stack then pop all of. Dequeue is just pop                                                                                                                                                                 |                                                  |
 
-## Binary Tree
-
-1. Full B Tree
-2. Perfect B Tree
-3. Complete B Tree -> Left to Right
-4. A node with no children is called 'Leaf' Node.
-5. Best : O(log n) Worst : o(n)
-
 ## Hash Tables
 
 1. HashMaps only but some twists.
@@ -121,7 +113,6 @@
 | findKthSmallest                 | Priority Queue | Keep polling till you get to the number                                 |                                                               |
 | Kth Largest Element in an Array | Priority Queue | pop once priorityQueue size is greater than k. Tricky but just practice | https://leetcode.com/problems/kth-largest-element-in-an-array |
 
-
 ## Recursion
 
 1. Function that calls itself.
@@ -151,8 +142,20 @@ public static int factorial(int n, int acc) {
 }
 ```
 
+# Binary Tree
 
-## BST
+1. Full B Tree
+2. Perfect B Tree
+3. Complete B Tree -> Left to Right
+4. A node with no children is called 'Leaf' Node.
+5. Best : O(log n) Worst : o(n)
+
+## BST with Recursion
 
 1. For every node, all values in the left subtree are smaller, and all values in the right subtree are larger.
 1. Because of the ordering, you can find any value in O(log n) time on a balanced tree
+
+| Question                                   | Common Topic | Solution                                                                                                                                                                                                                                                                | LeetCode         |
+| ------------------------------------------ | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| Convert Sorted Array to Binary Search Tree | BST          | Find the middle element of the current window and make it a node; then recursively repeat the same process on the left half and right half of the window, attaching the results as the left and right children, until the window is empty — at which point return null. | This is not easy |
+
