@@ -1,0 +1,1 @@
+ritam_folder_1/ritam_file_1.txt
