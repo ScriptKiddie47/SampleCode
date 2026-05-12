@@ -47,7 +47,7 @@ char[] a2 = Arrays.copyOf(a1,a1.length);
 1. Methods to handle array
 1. Filling an array with values - `Arrays.fill()`
 1. Searching through the array - `Array must be ordered also Arrays.binarySearch gives no guarantee about which index is returned when duplicates exist.`
-1. Comparing contenet
+1. Comparing content
 1. Sorting ( Comparable / Comparator )
 
 

@@ -59,7 +59,7 @@ sMap.put(1, "Syndicate");
 System.out.println(sMap); // {1=Syndicate}
 ```
 
-### Iterate through Collection
+## Iterate through Collection
 
 1. Iterator also allow to remove content from the collection.
 1. List
