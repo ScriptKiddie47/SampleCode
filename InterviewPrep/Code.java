@@ -1,32 +1,33 @@
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
-public class Code extends LinkedHashMap<String, Integer>{
-
-    private int capacity;
-
-    Code(int capacity){
-        super(capacity, 0.75f,true);
-        this.capacity = capacity;
-    }
-
-    @Override
-    protected boolean removeEldestEntry(java.util.Map.Entry<String, Integer> eldest) {
-        return size() > capacity;
-    }
-
-
-
+public class Code {
     public static void main(String[] args) {
-        Code code = new Code(3);
-        code.put("A", 1);
-        code.put("B", 2);
-        code.put("C", 3);
-        code.put("D", 4);
-        
-        Integer integer = code.get("A");
-        System.out.println(integer);
+        String str = "abc";
 
-        System.out.println(code);
+        // "abc,acb,bac,bca,cab,cba"
+
+        char[] c = str.toCharArray();
+
+        // input {1,2,3,4} output {24,12,8,6}
+
+        int[] ar1 = new int[] { 1, 2, 3, 4 };
+
+        List<Integer> mult = new ArrayList<>();
+        for (int j = 0; j < ar1.length; j++) {
+
+            int m = 1;
+            for (int i = 0; i < ar1.length; i++) {
+                
+                if (i == j) {
+                    // Do Nothing
+                } else {
+                    m = m * ar1[i];
+                }
+            }
+            mult.add(m);
+        }
+        System.out.println(mult);
+
     }
 }

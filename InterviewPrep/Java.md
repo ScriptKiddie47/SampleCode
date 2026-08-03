@@ -2,10 +2,11 @@
 
 1. Encapsulation,Inheritance, Polymorphism, and Abstraction
 
-# Java Feautes
+# Java Features
 
-8 -> Lambda Expression,Streams API, Optional, Default Methods ( Interface method with Body ) , method References, New Date/Time API, Funcitonal Interface ( Predicate,Function, Consumer, Supplier)
-11 -> var, modern HTTP Client
+8 -> Lambda Expression,Streams API, Optional, Default Methods ( Interface method with Body ) , method References, New Date/Time API, Functional Interface ( Predicate,Function, Consumer, Supplier)
+10 -> var
+11 -> var in lambda parameters, modern HTTP Client
 17 -> Records,Text Blocks,Sealed Classes.
 21 -> Virtual Threads,Sequenced Collections
 
@@ -13,10 +14,10 @@
 
 The SOLID principles are five essential guidelines that enhance software design, making code more maintainable and scalable.
 
-Single Responsibiliy ->  Every class should have a single responsibility
+Single Responsibility ->  Every class should have a single responsibility
 Open / Closed -> extend a class behavior, without modifying it
-Liskov Substitution -> 
-Interface segreation -> prevent fat interfaces by using multiple small, client-specific interfaces
+Liskov Substitution -> A subclass should be substitutable for its parent class without breaking the program
+Interface Segregation -> prevent fat interfaces by using multiple small, client-specific interfaces
 Dependency Inversion -> depend upon abstractions, not concretes
 
 # Unique Scenario 
@@ -32,53 +33,43 @@ Improves code reusability and flexibility
 Makes unit testing easier by allowing mock dependencies
 Enhances maintainability and scalability of the system
 
-ArrayList vs LinkedList - add(),remove(),get()
+`ArrayList` vs `LinkedList` - add(),remove(),get()
 ArrayList is a dynamic array-based implementation of the List interface. It internally uses a resizable array to store elements.
-    Stores elements in contiguous memory locations
+    Stores elements in `contiguous memory locations`
     Fast random access using index (O(1))
     Slower data inserts in middle or beginning (O(n)), faster at end
     Best for frequent access and rare modifications
 LinkedList is a doubly linked list-based implementation of the List and Deque interfaces. Each element is stored as a separate node.
-    Stores elements as nodes linked using pointers
-    Faster for insertion/deletion anywhere (O(1) if position known)
+    Stores elements as `nodes linked using pointers`
+    Faster for insertion/deletion anywhere (O(1) if you already hold the node reference, O(n) to find the position)
     Slower random access (O(n))
     Best for frequent insertions and deletions
 
-HashMap:
-A HashMap stores items in key/value pairs, where each key maps to a specific value.
-It is part of the java.util package and implements the Map interface.
-put(),get(),remove(),contains()
-
-SQL
-    Tables with rows and columns
-    Fixed schema (predefined structure)
-    ACID-compliant (strong consistency)
-    SQL (Structured Query Language)
-    Efficient for complex queries and transactions
-    Best for transactional systems (banking, ERP, etc.)
-NOSQL
-    Document-based, key-value, column-family, or graph-based
-    Flexible schema (dynamic and adaptable)
-    BASE-compliant (more available, less consistent)
-    Varies (e.g., MongoDB uses its own query language)
-    Better for large-scale data and fast read/write operations
-    Ideal for big data, real-time web apps, and data lakes
 
 
-What are the different ways to `create an object` in Java? - new,reflection,clone(),factory metthod/builder pattern
-`class` `loading` process in Java ? - Loading ( load bytecode,ext),Linking ( allocate memory ) & initialization ( static blocks and initlization )
+
+
+What is `classLoader` in Java - Part of JVM used to load .class files. | Bootstrap ClassLoader | 
+What are the different ways to `create an object` in Java? - new,reflection,clone(),factory method/builder pattern
+`class` `loading` process in Java ? - Loading ( load bytecode,ext),Linking ( allocate memory ) & initialization ( static blocks and initialization )
 Can a `class be loaded` twice ? - Not by the same classloader
-What happens when you start a `thread twice`? - IllegationStateException - A thread can only be run twice.
+What happens when you start a `thread twice`? - IllegalStateException - A thread can only be run once.
 How does Java handle memory leaks even though it has garbage collection? - Garbage collection works on Objects with no references but there can be object still references but not doing anything.
-How does a HashSet ensure uniqueness internally? - Internally, HashSet IS a HashMap -  compute hashCode() on element + equals() -> duplicate, don't insert
-What happens if you don't override hashCode properly? -> hashCode() gets you to the right bucket, equals() confirms you're the right tenant.
+How does a `HashSet` ensure uniqueness internally? - Internally, `HashSet` IS a HashMap -  compute hashCode() on element + equals() -> duplicate, don't insert
+What happens if you don't override hashCode properly? -> `hashCode()` gets you to the right bucket, `equals()` confirms you're the right tenant.
 What's the difference between `ArrayList` and `CopyOnWriteArrayList`? - CopyOnWriteArrayList is Thread Safe.
 What's the difference between `fail-fast` and `fail-safe` iterators?  - Fail-Fast throws ConcurrentModificationException
-Fail Said Collections -> `ConcurrentHashMaps`,`CopyOnWriteArrayList`
+`fail safe` Collections -> `ConcurrentHashMaps`,`CopyOnWriteArrayList`
 How would you return a value from a thread?
 How many types of `memory areas` are there in Java? ( Heap [Objects,Instance Variable],Stack[Each Thread gets its own stack,method calls,references]),Method Area,PC Register(Thread),Native Method Stack
-What is `volatile` `keyword` and how is it different from `synchronized`? volatile solves visibility, synchronized solves both visibility and atomicity
-
+What is `volatile` `keyword` and how is it different from `synchronized`?
+ volatile variable solves visibility, synchronized solves both visibility and atomicity
+How can we make a class Immutable in Java ? - Class as Final,All Fields private & final, return copies of mutable objects.
+What happens when the main thread dies but other threads are still running ? - If the main thread dies but the other `non daemon` threads are still running the program still runs.
+How to remove duplicates from 1 million records - Use HashSet
+What happens when we modify a list while iterating over it ? - If we do it using `for-each` - Java throws `Concurrent Modification Exception`. Use `iterator.remove()` or `CopyOnWriteArrayList`
+ReentrantLock vs Synchronized - synchronized for simplicity (Simple mutual exclusion,Readability matters), ReentrantLock when you need fine-grained control. ( Need try/timeout/fairness , Multiple wait conditions)
+Why `abstract` class have `constructor`? - The constructor is there to initialize the state (fields) of the abstract class — because the subclass inherits that state and needs it to be set up properly.
 
 
 # Code Errors
@@ -99,3 +90,35 @@ Exception in thread "main" java.lang.IllegalStateException: stream has already b
         at Code.main(Code.java:9)
 ```
 
+# Java Collections
+
+1. `HashMap`:A HashMap stores items in key/value pairs, where each key maps to a specific value. `Unordered`
+It is part of the java.util package and implements the Map interface.
+put(),get(),remove(),contains()
+Regarding Collision - It maintains a LinkedList per bucket and uses equals() to find the right entry. When a bucket exceeds 8 entries, it converts to a balanced tree (red-black tree) — lookup stays O(log n) instead of O(n)
+1. `LinkedHashMap` - Keeps insertion order
+1. `TreeMaps` - Keeps data in sorted order by Keys
+1. `Concurrent HashMap` - Allows multiple threads to read and write safely without blocking the whole map
+1. `Synchronized Map` - Entire map is blocked for each op. Slow in multithread envs
+
+
+
+
+
+# Oauth 
+
+An open standard / protocol for authorization
+
+# Shallow Copy Vs Deep Copy
+
+Shallow copy can be done using clone method. `@Override protected Object clone(){return super.clone();}`
+The problem is primitives are fine but if the Class uses mutable objects the references are copied which is bad.
+
+```java
+@Override
+protected Object clone() throws CloneNotSupportedException { // DEEP COPY
+    Car car = (Car)super.clone();
+    car.country = (Country)country.clone();
+    return car;
+}
+```

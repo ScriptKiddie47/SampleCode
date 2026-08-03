@@ -9,8 +9,8 @@
 
 1. Reverse a String - Extend to Check Palindrome
 1. FizzBuzz - String Concatnation
-1. Print longest non repetitive substring abcabcdeaab
-
+1. Print longest non repetitive substring abcabcdeaab 
+ 
 
 ## Arrays
 
@@ -68,6 +68,7 @@
     1. `record Dept(String dept_name,int deptCount){}`
     1. `List<String> list = employees.stream().flatMap(e -> depts.stream().filter(d -> d.dept_name().equals(e.dept_name())).map(dt -> e.name() + " > " + dt.dept_name() + " count(" + dt.deptCount())).toList();`
     1. Note -> Flatmap ends at the very end.
+1. LinkedHahSet - 
 
 ```java
 import java.util.Arrays;
@@ -113,5 +114,59 @@ public class R {
 }
 
 record Employee(String name, String gender, String age, String dept, int salary) {
+}
+```
+
+# Java Threads
+
+1. Odd-Even Printing with Two Threads
+
+```java
+
+public class Code {
+    public static void main(String[] args) {
+        Object lock = new Object();
+        Runnable r1 = new EvenAndOddPrinterBy2Threads(lock);
+        Runnable r2 = new EvenAndOddPrinterBy2Threads(lock);
+        Thread t1 = new Thread(r1);
+        Thread t2 = new Thread(r2);
+        t1.setName("even");
+        t2.setName("odd");
+        t1.start();
+        t2.start();
+    }
+}
+class EvenAndOddPrinterBy2Threads implements Runnable {
+
+    static int count = 1;
+    Object object;
+
+    public EvenAndOddPrinterBy2Threads(Object object) {
+        this.object = object;
+    }
+
+    @Override
+    public void run() {
+        while (count <= 10) {
+            if (count % 2 == 0 && Thread.currentThread().getName().equals("even")) {
+                synchronized (object) {
+                    System.out.println("Thread Name:" + Thread.currentThread().getName() + " value:" + count);
+                    count++;
+                    try {
+                        object.wait();
+                    } catch (InterruptedException e) {
+                    }
+                }
+            }
+
+            if (count % 2 != 0 && Thread.currentThread().getName().equals("odd")) {
+                synchronized (object) {
+                    System.out.println("Thread Name:" + Thread.currentThread().getName() + " value:" + count);
+                    count++;
+                    object.notify();
+                }
+            }
+        }
+    }
 }
 ```
