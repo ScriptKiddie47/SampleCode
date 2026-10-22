@@ -29,13 +29,14 @@ sudo apt install pgadmin4
 
 ```yaml
 spring:
+  application:
+    name: estate
   datasource:
-    url: jdbc:postgresql://localhost:5432/your_database_name
-    username: your_username
-    password: your_password
-    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: admin
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
     show-sql: true
 ```
