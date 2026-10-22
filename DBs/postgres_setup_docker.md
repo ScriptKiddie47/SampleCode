@@ -23,3 +23,19 @@ sudo apt install pgadmin4
 3. Create Database ( I did it through DBeaver)
 4. Navigate the home folder and execute the command : `pg_restore -c -U postgres -d dvdrental -v "dvdrental.tar" -W`
 5. To Connect to PSQL `root@94f0958017e8:/home# psql -d dvdrental -U postgres`
+
+
+### POSTGRES SPRING BOOT CONNECTION
+
+```yaml
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/your_database_name
+    username: your_username
+    password: your_password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+```
