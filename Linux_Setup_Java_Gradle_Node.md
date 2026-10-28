@@ -90,6 +90,29 @@ export PS1="\u@\h \[\e[32m\]\w \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
 
 1. Terminal Themes  :  bash -c "$(wget -qO- https://git.io/vQgMr)"
 
-## Font Settings in VSCode
+## VSCode Config
 
-'JetBrains Mono', monospace
+Ctrl + Shift + P  -> Preferences: Open User Settings (JSON) 
+
+```json
+{
+  "terminal.integrated.fontFamily": "'JetBrains Mono', monospace",
+  "terminal.integrated.fontSize": 12,
+  "editor.fontFamily": "'JetBrains Mono', monospace",
+  "editor.fontSize": 11.5,
+  "editor.overtypeCursorStyle": "line",
+  "terminal.integrated.cursorStyle": "line",
+  "workbench.editor.empty.hint": "hidden",
+  "workbench.sideBar.location": "right",
+  "editor.minimap.enabled": false,
+  "terminal.integrated.fontLigatures.enabled": true,
+  "window.density.editorTabHeight": "compact",
+  "workbench.editor.wrapTabs": true,
+  "terminal.integrated.gpuAcceleration": "off",
+  "workbench.colorTheme": "Catppuccin Frappé",
+  "catppuccin.italicKeywords": false,
+  "catppuccin.italicComments": false,
+  "editor.formatOnSave": true,
+  "editor.fontLigatures": true
+}
+```
